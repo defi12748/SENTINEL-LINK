@@ -1,0 +1,263 @@
+{
+  "observation_id": 15242426,
+  "norad_id": 39444,
+  "start": "2026-10-19T13:22:13Z",
+  "end": "2026-10-19T13:27:09Z",
+  "station_id": 4272,
+  "station_name": "Sofia SAT Club - Hadji Boby VHF",
+  "station_lat": 41.697669,
+  "station_lng": 24.95621,
+  "station_alt": 1110,
+  "frequency_hz": 145935000,
+  "mode": "BPSK",
+  "baud": 1200.0,
+  "tle1": "1 39444U 13066AE  26291.69084449  .00007612  00000-0  45323-3 0  9990",
+  "tle2": "2 39444  97.8440 265.9586 0036184 140.7074 219.6791 15.10959604698305",
+  "max_altitude": 48.0,
+  "audio_url": "https://network-satnogs.freetls.fastly.net/media/data_obs/2026/10/19/13/15242426/satnogs_15242426_2026-10-19T13-22-13.ogg",
+  "waterfall_url": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/10/19/13/15242426/waterfall_15242426_2026-10-19T13-22-13.png",
+  "audio_file": "obs_15242426/audio.ogg",
+  "audio_sha256": "89e35eb0628dedaf0d18c91c4128b668be2b179a2bef636b4598a5c16fefd81e",
+  "frames": [
+    {
+      "index": 0,
+      "timestamp_utc": "2026-10-19T13:22:45Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "2bd1feb60457c8b27717f4e76fe86f08c259908d2d81e98662e4dbe2238cd0f9",
+      "file": "obs_15242426/frames/frame_0000.bin"
+    },
+    {
+      "index": 1,
+      "timestamp_utc": "2026-10-19T13:22:50Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "0d5f5dce80c44028fc997edd38f5888dc36c29a513104eb37e7e6b5247a8ef70",
+      "file": "obs_15242426/frames/frame_0001.bin"
+    },
+    {
+      "index": 2,
+      "timestamp_utc": "2026-10-19T13:22:55Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "6b6d1d60900c19b5f7af12b97e7f620c3351a4edf2e0a57d9c509249aa3f27fb",
+      "file": "obs_15242426/frames/frame_0002.bin"
+    },
+    {
+      "index": 3,
+      "timestamp_utc": "2026-10-19T13:23:00Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "565dcda8e90908d53f91919e9167b2159b7cd6a60988d5d0e47b89a2154db51b",
+      "file": "obs_15242426/frames/frame_0003.bin"
+    },
+    {
+      "index": 4,
+      "timestamp_utc": "2026-10-19T13:23:05Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "400d34e34b83b11aab311d51fb9271caa739570cb504c0aabf3097a0827b5b1a",
+      "file": "obs_15242426/frames/frame_0004.bin"
+    },
+    {
+      "index": 5,
+      "timestamp_utc": "2026-10-19T13:23:10Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "649c3ebf11d1bae5052e8b964c25ece0c5ce531a432af22748e5c404cb6d4064",
+      "file": "obs_15242426/frames/frame_0005.bin"
+    },
+    {
+      "index": 6,
+      "timestamp_utc": "2026-10-19T13:23:15Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "0d6e1ae467dbbbd96d89cfca8d7cfd7194f8e234967bfe2bf830195629b11be5",
+      "file": "obs_15242426/frames/frame_0006.bin"
+    },
+    {
+      "index": 7,
+      "timestamp_utc": "2026-10-19T13:23:20Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "3299ede4d4a7ea8ae520935703d48c7f76a4d897df8a3aaf131e55cdd17cfd66",
+      "file": "obs_15242426/frames/frame_0007.bin"
+    },
+    {
+      "index": 8,
+      "timestamp_utc": "2026-10-19T13:23:25Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "597ee7c299ad8a2033b70fc409235f9210925d0f490619de2fa045da1b79da0a",
+      "file": "obs_15242426/frames/frame_0008.bin"
+    },
+    {
+      "index": 9,
+      "timestamp_utc": "2026-10-19T13:23:30Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "41a1792f7b6955e1e95942e54104f332f7db214a14d9e3247dd16bb9e86a7a61",
+      "file": "obs_15242426/frames/frame_0009.bin"
+    },
+    {
+      "index": 10,
+      "timestamp_utc": "2026-10-19T13:23:35Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "a247e336eba31eb0391e118037ae28a940617e581fc147a2823bf5079a735971",
+      "file": "obs_15242426/frames/frame_0010.bin"
+    },
+    {
+      "index": 11,
+      "timestamp_utc": "2026-10-19T13:23:40Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "eae0ae46134dcaa9588f4f3b163df6f2d0133502f270a3a62e03b537887cb854",
+      "file": "obs_15242426/frames/frame_0011.bin"
+    },
+    {
+      "index": 12,
+      "timestamp_utc": "2026-10-19T13:23:45Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "12921c15609d6776e69aa111b51fc902b4268016d4f8a8f83750b2afffc42efb",
+      "file": "obs_15242426/frames/frame_0012.bin"
+    },
+    {
+      "index": 13,
+      "timestamp_utc": "2026-10-19T13:23:50Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "7078790645ed2e03049c3154faef885243a2d39b8e676d20014f95c22d4a37c9",
+      "file": "obs_15242426/frames/frame_0013.bin"
+    },
+    {
+      "index": 14,
+      "timestamp_utc": "2026-10-19T13:23:55Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "87597c2513ac9242b5da9ddc791cea895fb5bef5418dd55522947551f5968550",
+      "file": "obs_15242426/frames/frame_0014.bin"
+    },
+    {
+      "index": 15,
+      "timestamp_utc": "2026-10-19T13:24:00Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "4c9bb0a2cb479ea93f4a1263f6fa904df00e8df3e46616adad7857e194e96d48",
+      "file": "obs_15242426/frames/frame_0015.bin"
+    },
+    {
+      "index": 16,
+      "timestamp_utc": "2026-10-19T13:24:05Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "def641f87d3eb7cc3460b3fed171262cb3c72108f394bcc6d5eb39cfb2098c83",
+      "file": "obs_15242426/frames/frame_0016.bin"
+    },
+    {
+      "index": 17,
+      "timestamp_utc": "2026-10-19T13:24:10Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "759d659fd3475abbd37158882c2b94249dab8763b0b18f3df7a61b3dad5c5aeb",
+      "file": "obs_15242426/frames/frame_0017.bin"
+    },
+    {
+      "index": 18,
+      "timestamp_utc": "2026-10-19T13:24:15Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "e0021941fa1e5313b95dd4ac1024dc82167db6eca9927328821824e2406a8d55",
+      "file": "obs_15242426/frames/frame_0018.bin"
+    },
+    {
+      "index": 19,
+      "timestamp_utc": "2026-10-19T13:24:20Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "2f5a877cec148440e76b7fc11387653b8d3a8bbe89533c126be929b78dac289f",
+      "file": "obs_15242426/frames/frame_0019.bin"
+    },
+    {
+      "index": 20,
+      "timestamp_utc": "2026-10-19T13:24:25Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "0134790dd3d2f44c9ca0e7b351b403a571a52556c5cf3132dbf7b88a71ea965e",
+      "file": "obs_15242426/frames/frame_0020.bin"
+    },
+    {
+      "index": 21,
+      "timestamp_utc": "2026-10-19T13:24:30Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "a8bdef3c96a2d988b9bf453bf5095bbbdc7b6fcdb5ca3a2a848bd4569ba1efdd",
+      "file": "obs_15242426/frames/frame_0021.bin"
+    },
+    {
+      "index": 22,
+      "timestamp_utc": "2026-10-19T13:24:35Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "9ed4272f5fb0d3be9afd588d82a572050b50c36c0b51b913f643dccb56cbffa2",
+      "file": "obs_15242426/frames/frame_0022.bin"
+    },
+    {
+      "index": 23,
+      "timestamp_utc": "2026-10-19T13:24:40Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "b0e44ce395d9e24d1e74b43a040f51ebf95cf2af931106201eb84ebb7149e673",
+      "file": "obs_15242426/frames/frame_0023.bin"
+    },
+    {
+      "index": 24,
+      "timestamp_utc": "2026-10-19T13:24:45Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "8ffcff1083e833314c71cb1fb2b3901efe52d662aeaa8559632ef20cb9a5e1b5",
+      "file": "obs_15242426/frames/frame_0024.bin"
+    },
+    {
+      "index": 25,
+      "timestamp_utc": "2026-10-19T13:24:50Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "3c280c5132a1ec86f3695a0af2acf8eddcb187d4b9f2333eebae5c478160468c",
+      "file": "obs_15242426/frames/frame_0025.bin"
+    },
+    {
+      "index": 26,
+      "timestamp_utc": "2026-10-19T13:24:55Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "0bb50a648bf87e2bbffd8b8725195e86bb8e9114c13ac7509383cba35de6e9f8",
+      "file": "obs_15242426/frames/frame_0026.bin"
+    },
+    {
+      "index": 27,
+      "timestamp_utc": "2026-10-19T13:25:00Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "692f0817d15647442f0059ffaf19fd94dcd697e80eeec7254c3c5e1cfaa21693",
+      "file": "obs_15242426/frames/frame_0027.bin"
+    },
+    {
+      "index": 28,
+      "timestamp_utc": "2026-10-19T13:25:05Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "ccaa4138a9bde1b27e250346ed38e25a061308a3133618d08010533babd7668d",
+      "file": "obs_15242426/frames/frame_0028.bin"
+    },
+    {
+      "index": 29,
+      "timestamp_utc": "2026-10-19T13:25:10Z",
+      "group": 0,
+      "size_bytes": 236,
+      "sha256": "cc4f67536f9ccba72a3ddc7ddd7218ae8209dff25f96a22840de4d43b6c67586",
+      "file": "obs_15242426/frames/frame_0029.bin"
+    }
+  ]
+}

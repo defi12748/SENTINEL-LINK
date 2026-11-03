@@ -1,0 +1,24 @@
+{
+  "generated_utc": "2026-10-23T22:39:00.076137+00:00",
+  "fresh_source_copy": true,
+  "reused_node_modules": false,
+  "checks": {
+    "install": {
+      "exit_code": 0,
+      "stdout": "\nadded 382 packages in 1m\n",
+      "stderr": "npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.\n"
+    },
+    "build": {
+      "exit_code": 0,
+      "stdout": "es/no-img-element  @next/next/no-img-element\n294:48  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n326:60  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n356:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n393:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n436:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n465:48  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n\ninfo  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules\n   Collecting page data ...\n   Generating static pages (0/11) ...\n   Generating static pages (2/11) \n   Generating static pages (5/11) \n   Generating static pages (8/11) \n \u00e2\u0153\u201c Generating static pages (11/11)\n   Finalizing page optimization ...\n   Collecting build traces ...\n\nRoute (app)                                 Size  First Load JS\n\u00e2\u201d\u0152 \u00e2\u2014\u2039 /                                    6.29 kB         117 kB\n\u00e2\u201d\u0153 \u00e2\u2014\u2039 /_not-found                            991 B         104 kB\n\u00e2\u201d\u0153 \u00e2\u2014\u2039 /attack-lab                          2.58 kB         183 kB\n\u00e2\u201d\u0153 \u00e2\u2014\u2039 /challenge                           5.13 kB         116 kB\n\u00e2\u201d\u0153 \u00e2\u2014\u2039 /docs                                  162 B         111 kB\n\u00e2\u201d\u0153 \u00c6\u2019 /docs/[slug]                         12.8 kB         124 kB\n\u00e2\u201d\u0153 \u00e2\u2014\u2039 /nasa                                4.21 kB         115 kB\n\u00e2\u201d\u0153 \u00e2\u2014\u2039 /passes                              2.56 kB         113 kB\n\u00e2\u201d\u0153 \u00c6\u2019 /passes/[id]                         2.03 kB         183 kB\n\u00e2\u201d\u0153 \u00e2\u2014\u2039 /results                             3.63 kB         115 kB\n\u00e2\u201d\u201d \u00e2\u2014\u2039 /trust                                4.9 kB         116 kB\n+ First Load JS shared by all             103 kB\n  \u00e2\u201d\u0153 chunks/255-b1e2483a7e02feee.js       46.6 kB\n  \u00e2\u201d\u0153 chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB\n  \u00e2\u201d\u201d other shared chunks (total)          2.15 kB\n\n\n\u00e2\u2014\u2039  (Static)   prerendered as static content\n\u00c6\u2019  (Dynamic)  server-rendered on demand\n\n",
+      "stderr": ""
+    }
+  },
+  "ok": true,
+  "standalone_production_browser": {
+    "desktop": true,
+    "mobile": true,
+    "api_proxy": true,
+    "runtime_errors": []
+  }
+}

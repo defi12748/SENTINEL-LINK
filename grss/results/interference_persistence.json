@@ -1,0 +1,378 @@
+{
+  "generated_utc": "2026-10-28T17:23:11+00:00",
+  "threshold": 0.9793794090605039,
+  "calibration_observations": [
+    "obs_15192903",
+    "obs_15202507",
+    "obs_15202641"
+  ],
+  "criterion": "detection within 5 points of the single-window rule; fewest clean alarm episodes per hour",
+  "selected": {
+    "min_windows": 1,
+    "freq_tol_hz": null
+  },
+  "calibration": [
+    {
+      "min_windows": 1,
+      "freq_tol_hz": null,
+      "clean_recordings_with_alarm": 1,
+      "clean_recordings": 3,
+      "clean_recordings_with_alarm_ci95": [
+        0.0615,
+        0.7923
+      ],
+      "clean_alarm_episodes_per_hour": 3.42,
+      "jammed_detected": 10,
+      "jammed": 24,
+      "detection_rate": 0.4167,
+      "detection_rate_ci95": [
+        0.2447,
+        0.6117
+      ]
+    },
+    {
+      "min_windows": 2,
+      "freq_tol_hz": null,
+      "clean_recordings_with_alarm": 1,
+      "clean_recordings": 3,
+      "clean_recordings_with_alarm_ci95": [
+        0.0615,
+        0.7923
+      ],
+      "clean_alarm_episodes_per_hour": 3.42,
+      "jammed_detected": 8,
+      "jammed": 24,
+      "detection_rate": 0.3333,
+      "detection_rate_ci95": [
+        0.1797,
+        0.5329
+      ]
+    },
+    {
+      "min_windows": 3,
+      "freq_tol_hz": null,
+      "clean_recordings_with_alarm": 0,
+      "clean_recordings": 3,
+      "clean_recordings_with_alarm_ci95": [
+        0.0,
+        0.5615
+      ],
+      "clean_alarm_episodes_per_hour": 0.0,
+      "jammed_detected": 6,
+      "jammed": 24,
+      "detection_rate": 0.25,
+      "detection_rate_ci95": [
+        0.12,
+        0.449
+      ]
+    },
+    {
+      "min_windows": 4,
+      "freq_tol_hz": null,
+      "clean_recordings_with_alarm": 0,
+      "clean_recordings": 3,
+      "clean_recordings_with_alarm_ci95": [
+        0.0,
+        0.5615
+      ],
+      "clean_alarm_episodes_per_hour": 0.0,
+      "jammed_detected": 6,
+      "jammed": 24,
+      "detection_rate": 0.25,
+      "detection_rate_ci95": [
+        0.12,
+        0.449
+      ]
+    },
+    {
+      "min_windows": 6,
+      "freq_tol_hz": null,
+      "clean_recordings_with_alarm": 0,
+      "clean_recordings": 3,
+      "clean_recordings_with_alarm_ci95": [
+        0.0,
+        0.5615
+      ],
+      "clean_alarm_episodes_per_hour": 0.0,
+      "jammed_detected": 4,
+      "jammed": 24,
+      "detection_rate": 0.1667,
+      "detection_rate_ci95": [
+        0.0668,
+        0.3585
+      ]
+    },
+    {
+      "min_windows": 1,
+      "freq_tol_hz": 50.0,
+      "clean_recordings_with_alarm": 1,
+      "clean_recordings": 3,
+      "clean_recordings_with_alarm_ci95": [
+        0.0615,
+        0.7923
+      ],
+      "clean_alarm_episodes_per_hour": 3.42,
+      "jammed_detected": 10,
+      "jammed": 24,
+      "detection_rate": 0.4167,
+      "detection_rate_ci95": [
+        0.2447,
+        0.6117
+      ]
+    },
+    {
+      "min_windows": 2,
+      "freq_tol_hz": 50.0,
+      "clean_recordings_with_alarm": 1,
+      "clean_recordings": 3,
+      "clean_recordings_with_alarm_ci95": [
+        0.0615,
+        0.7923
+      ],
+      "clean_alarm_episodes_per_hour": 3.42,
+      "jammed_detected": 7,
+      "jammed": 24,
+      "detection_rate": 0.2917,
+      "detection_rate_ci95": [
+        0.1491,
+        0.4917
+      ]
+    },
+    {
+      "min_windows": 3,
+      "freq_tol_hz": 50.0,
+      "clean_recordings_with_alarm": 0,
+      "clean_recordings": 3,
+      "clean_recordings_with_alarm_ci95": [
+        0.0,
+        0.5615
+      ],
+      "clean_alarm_episodes_per_hour": 0.0,
+      "jammed_detected": 6,
+      "jammed": 24,
+      "detection_rate": 0.25,
+      "detection_rate_ci95": [
+        0.12,
+        0.449
+      ]
+    },
+    {
+      "min_windows": 4,
+      "freq_tol_hz": 50.0,
+      "clean_recordings_with_alarm": 0,
+      "clean_recordings": 3,
+      "clean_recordings_with_alarm_ci95": [
+        0.0,
+        0.5615
+      ],
+      "clean_alarm_episodes_per_hour": 0.0,
+      "jammed_detected": 6,
+      "jammed": 24,
+      "detection_rate": 0.25,
+      "detection_rate_ci95": [
+        0.12,
+        0.449
+      ]
+    },
+    {
+      "min_windows": 6,
+      "freq_tol_hz": 50.0,
+      "clean_recordings_with_alarm": 0,
+      "clean_recordings": 3,
+      "clean_recordings_with_alarm_ci95": [
+        0.0,
+        0.5615
+      ],
+      "clean_alarm_episodes_per_hour": 0.0,
+      "jammed_detected": 4,
+      "jammed": 24,
+      "detection_rate": 0.1667,
+      "detection_rate_ci95": [
+        0.0668,
+        0.3585
+      ]
+    }
+  ],
+  "held_out": [
+    {
+      "min_windows": 1,
+      "freq_tol_hz": null,
+      "clean_recordings_with_alarm": 7,
+      "clean_recordings": 17,
+      "clean_recordings_with_alarm_ci95": [
+        0.2161,
+        0.6399
+      ],
+      "clean_alarm_episodes_per_hour": 7.63,
+      "jammed_detected": 26,
+      "jammed": 48,
+      "detection_rate": 0.5417,
+      "detection_rate_ci95": [
+        0.4029,
+        0.6742
+      ]
+    },
+    {
+      "min_windows": 2,
+      "freq_tol_hz": null,
+      "clean_recordings_with_alarm": 2,
+      "clean_recordings": 17,
+      "clean_recordings_with_alarm_ci95": [
+        0.0329,
+        0.3434
+      ],
+      "clean_alarm_episodes_per_hour": 2.54,
+      "jammed_detected": 23,
+      "jammed": 48,
+      "detection_rate": 0.4792,
+      "detection_rate_ci95": [
+        0.3447,
+        0.6167
+      ]
+    },
+    {
+      "min_windows": 3,
+      "freq_tol_hz": null,
+      "clean_recordings_with_alarm": 1,
+      "clean_recordings": 17,
+      "clean_recordings_with_alarm_ci95": [
+        0.0105,
+        0.2698
+      ],
+      "clean_alarm_episodes_per_hour": 1.53,
+      "jammed_detected": 22,
+      "jammed": 48,
+      "detection_rate": 0.4583,
+      "detection_rate_ci95": [
+        0.3258,
+        0.5971
+      ]
+    },
+    {
+      "min_windows": 4,
+      "freq_tol_hz": null,
+      "clean_recordings_with_alarm": 1,
+      "clean_recordings": 17,
+      "clean_recordings_with_alarm_ci95": [
+        0.0105,
+        0.2698
+      ],
+      "clean_alarm_episodes_per_hour": 1.02,
+      "jammed_detected": 22,
+      "jammed": 48,
+      "detection_rate": 0.4583,
+      "detection_rate_ci95": [
+        0.3258,
+        0.5971
+      ]
+    },
+    {
+      "min_windows": 6,
+      "freq_tol_hz": null,
+      "clean_recordings_with_alarm": 0,
+      "clean_recordings": 17,
+      "clean_recordings_with_alarm_ci95": [
+        0.0,
+        0.1843
+      ],
+      "clean_alarm_episodes_per_hour": 0.0,
+      "jammed_detected": 17,
+      "jammed": 48,
+      "detection_rate": 0.3542,
+      "detection_rate_ci95": [
+        0.2343,
+        0.4956
+      ]
+    },
+    {
+      "min_windows": 1,
+      "freq_tol_hz": 50.0,
+      "clean_recordings_with_alarm": 7,
+      "clean_recordings": 17,
+      "clean_recordings_with_alarm_ci95": [
+        0.2161,
+        0.6399
+      ],
+      "clean_alarm_episodes_per_hour": 7.13,
+      "jammed_detected": 26,
+      "jammed": 48,
+      "detection_rate": 0.5417,
+      "detection_rate_ci95": [
+        0.4029,
+        0.6742
+      ]
+    },
+    {
+      "min_windows": 2,
+      "freq_tol_hz": 50.0,
+      "clean_recordings_with_alarm": 2,
+      "clean_recordings": 17,
+      "clean_recordings_with_alarm_ci95": [
+        0.0329,
+        0.3434
+      ],
+      "clean_alarm_episodes_per_hour": 2.04,
+      "jammed_detected": 23,
+      "jammed": 48,
+      "detection_rate": 0.4792,
+      "detection_rate_ci95": [
+        0.3447,
+        0.6167
+      ]
+    },
+    {
+      "min_windows": 3,
+      "freq_tol_hz": 50.0,
+      "clean_recordings_with_alarm": 1,
+      "clean_recordings": 17,
+      "clean_recordings_with_alarm_ci95": [
+        0.0105,
+        0.2698
+      ],
+      "clean_alarm_episodes_per_hour": 0.51,
+      "jammed_detected": 22,
+      "jammed": 48,
+      "detection_rate": 0.4583,
+      "detection_rate_ci95": [
+        0.3258,
+        0.5971
+      ]
+    },
+    {
+      "min_windows": 4,
+      "freq_tol_hz": 50.0,
+      "clean_recordings_with_alarm": 1,
+      "clean_recordings": 17,
+      "clean_recordings_with_alarm_ci95": [
+        0.0105,
+        0.2698
+      ],
+      "clean_alarm_episodes_per_hour": 0.51,
+      "jammed_detected": 21,
+      "jammed": 48,
+      "detection_rate": 0.4375,
+      "detection_rate_ci95": [
+        0.307,
+        0.5773
+      ]
+    },
+    {
+      "min_windows": 6,
+      "freq_tol_hz": 50.0,
+      "clean_recordings_with_alarm": 0,
+      "clean_recordings": 17,
+      "clean_recordings_with_alarm_ci95": [
+        0.0,
+        0.1843
+      ],
+      "clean_alarm_episodes_per_hour": 0.0,
+      "jammed_detected": 14,
+      "jammed": 48,
+      "detection_rate": 0.2917,
+      "detection_rate_ci95": [
+        0.1824,
+        0.4318
+      ]
+    }
+  ]
+}

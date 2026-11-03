@@ -1,0 +1,167 @@
+{
+  "observation_id": 15229495,
+  "norad_id": 39444,
+  "start": "2026-10-18T09:10:13Z",
+  "end": "2026-10-18T09:18:21Z",
+  "station_id": 4806,
+  "station_name": "KC1OCA UC-1464-531L (VHF)",
+  "station_lat": 42.100419574,
+  "station_lng": -72.32180283,
+  "station_alt": 192,
+  "frequency_hz": 145935000,
+  "mode": "BPSK",
+  "baud": 1200.0,
+  "tle1": "1 39444U 13066AE  26291.16104384  .00007025  00000-0  41872-3 0  9996",
+  "tle2": "2 39444  97.8438 265.4155 0036148 142.4368 217.9396 15.10951457698225",
+  "max_altitude": 86.0,
+  "audio_url": "https://network-satnogs.freetls.fastly.net/media/data_obs/2026/10/18/9/15229495/satnogs_15229495_2026-10-18T09-10-13.ogg",
+  "waterfall_url": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/10/18/9/15229495/waterfall_15229495_2026-10-18T09-10-13.png",
+  "audio_file": "obs_15229495/audio.ogg",
+  "audio_sha256": "c6fbb1fec0fcbacf0d51daf09cf7a24059040523216a467c404c70ef87065fd1",
+  "frames": [
+    {
+      "index": 0,
+      "timestamp_utc": "2026-10-18T09:13:20Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "51fe9958ab7283f4d645eecd7035249dad84a294618a93fe9c86973694f1c9b2",
+      "file": "obs_15229495/frames/frame_0000.bin"
+    },
+    {
+      "index": 1,
+      "timestamp_utc": "2026-10-18T09:13:25Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "f9592fdae5dbe43bba5d4109910d61f290d8c86f997757db30de981841cdc608",
+      "file": "obs_15229495/frames/frame_0001.bin"
+    },
+    {
+      "index": 2,
+      "timestamp_utc": "2026-10-18T09:13:30Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "70b2a23c9636496c2e90d805610b3d0e9981eb9144add253661424e089ccae5a",
+      "file": "obs_15229495/frames/frame_0002.bin"
+    },
+    {
+      "index": 3,
+      "timestamp_utc": "2026-10-18T09:13:35Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "48fc345f10e0fa5c4035f9429bccb56d8dc916d715a5b1e4700375ac8e2dfb1a",
+      "file": "obs_15229495/frames/frame_0003.bin"
+    },
+    {
+      "index": 4,
+      "timestamp_utc": "2026-10-18T09:13:40Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "40f675c0c6f8b38f012eea9002483d1529361a496d672460a2c9f67f782e444a",
+      "file": "obs_15229495/frames/frame_0004.bin"
+    },
+    {
+      "index": 5,
+      "timestamp_utc": "2026-10-18T09:13:45Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "20868f1fdd77bf11dbc49497771124f578e620baa1d9aa913fa72415aff75248",
+      "file": "obs_15229495/frames/frame_0005.bin"
+    },
+    {
+      "index": 6,
+      "timestamp_utc": "2026-10-18T09:13:50Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "f2b8cd21ea509dcab241971c8a22b64d21174030c6954912a896a89149511737",
+      "file": "obs_15229495/frames/frame_0006.bin"
+    },
+    {
+      "index": 7,
+      "timestamp_utc": "2026-10-18T09:13:55Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "9d52f7afbc4df64f51128ee54b85242fb56a08ee8d4b21499d254dfaee027054",
+      "file": "obs_15229495/frames/frame_0007.bin"
+    },
+    {
+      "index": 8,
+      "timestamp_utc": "2026-10-18T09:14:00Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "3d0e97a85e2a2ffeccc69799a5c4fe0e5a1ff3e503ddff319aef0f9f4328d593",
+      "file": "obs_15229495/frames/frame_0008.bin"
+    },
+    {
+      "index": 9,
+      "timestamp_utc": "2026-10-18T09:14:05Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "9b841e2e1d161ccc842ad03b475c6c28db7c7d36b6516944a1ca298cbc118986",
+      "file": "obs_15229495/frames/frame_0009.bin"
+    },
+    {
+      "index": 10,
+      "timestamp_utc": "2026-10-18T09:14:10Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "3a56c43f510a52abd443a711c2f1062a943fdbc73ba88285ad94965b347faa2d",
+      "file": "obs_15229495/frames/frame_0010.bin"
+    },
+    {
+      "index": 11,
+      "timestamp_utc": "2026-10-18T09:14:15Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "00cfa28118a8fe9d17ec9cc86ccba224c63706b7ff9d04588d4f4dfbf45b13a6",
+      "file": "obs_15229495/frames/frame_0011.bin"
+    },
+    {
+      "index": 12,
+      "timestamp_utc": "2026-10-18T09:14:20Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "6245db2a96ef19ce1531ee6d3bfe7a3355db1f28ac2ebe41659500530893532e",
+      "file": "obs_15229495/frames/frame_0012.bin"
+    },
+    {
+      "index": 13,
+      "timestamp_utc": "2026-10-18T09:14:25Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "300f706e12afa53300e37149c6bd7d98171437fc503e7197f183c1ed7dca2a48",
+      "file": "obs_15229495/frames/frame_0013.bin"
+    },
+    {
+      "index": 14,
+      "timestamp_utc": "2026-10-18T09:14:30Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "d8bcac56deb1c014697521a864eef7c172003a5dc1376b312b1a9285d2d842c6",
+      "file": "obs_15229495/frames/frame_0014.bin"
+    },
+    {
+      "index": 15,
+      "timestamp_utc": "2026-10-18T09:14:35Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "e06fb9e7eebfed8b750682f606d0b7ede6c1865650400c388f09c97986b85d76",
+      "file": "obs_15229495/frames/frame_0015.bin"
+    },
+    {
+      "index": 16,
+      "timestamp_utc": "2026-10-18T09:14:40Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "9ca8904540bf25ee2d095052c30ca6fd435e17ec87bb211b55b9ef9326fe4868",
+      "file": "obs_15229495/frames/frame_0016.bin"
+    },
+    {
+      "index": 17,
+      "timestamp_utc": "2026-10-18T09:14:55Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "e7a0a2e69c7b9ce6923c64a7bbf49a09b0f0037148a26df1746a712dbaa0abb2",
+      "file": "obs_15229495/frames/frame_0017.bin"
+    }
+  ]
+}

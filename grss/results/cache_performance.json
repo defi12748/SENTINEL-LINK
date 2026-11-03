@@ -1,0 +1,63 @@
+{
+  "generated_utc": "2026-10-23T16:14:54.341190+00:00",
+  "api": "http://127.0.0.1:8000",
+  "measurements": {
+    "scenario_cold": {
+      "wall_ms": 15821.58,
+      "cache": {
+        "status": "miss",
+        "key": "a613410f5e9089096bb06b4f283c20a40dc7d1f7986bd20b5876ac46af3b6038",
+        "elapsed_ms": 15488.15
+      }
+    },
+    "scenario_warm": {
+      "wall_ms": 196.51,
+      "cache": {
+        "status": "memory",
+        "key": "a613410f5e9089096bb06b4f283c20a40dc7d1f7986bd20b5876ac46af3b6038",
+        "elapsed_ms": 3.06
+      }
+    },
+    "observation_cold": {
+      "wall_ms": 12821.26,
+      "cache": {
+        "status": "miss",
+        "key": "7898619656dcccca2dfd12f6efa85563c0b9375ca507dd2627e9739096e530e9",
+        "elapsed_ms": 12617.62
+      }
+    },
+    "observation_warm": {
+      "wall_ms": 265.31,
+      "cache": {
+        "status": "memory",
+        "key": "7898619656dcccca2dfd12f6efa85563c0b9375ca507dd2627e9739096e530e9",
+        "elapsed_ms": 6.97
+      }
+    },
+    "scenario_after_restart": {
+      "wall_ms": 288.27,
+      "cache": {
+        "status": "disk",
+        "key": "a613410f5e9089096bb06b4f283c20a40dc7d1f7986bd20b5876ac46af3b6038",
+        "elapsed_ms": 26.31
+      }
+    }
+  },
+  "identical_analysis": true,
+  "fresh_audit": true,
+  "scenario": {
+    "observation_id": 15261075,
+    "seed": 7,
+    "score": {
+      "fn": 1,
+      "fp": 0,
+      "frames": 60,
+      "tp": 8
+    },
+    "jammer_detected": false
+  },
+  "station_public_key": "vGg8i2FSCbEY2ecQ3KOAYeiHTkQhqBQxg7Y9iJop2Kc=",
+  "last_run_id": "15261075-standard-7-2c81ba50994c410d9088a2bf71be3e55",
+  "restart_preserves_analysis_with_new_signer": true,
+  "speedup": 80.5
+}

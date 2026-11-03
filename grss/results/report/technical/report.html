@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SENTINEL-LINK Technical Report</title>
+<style>
+@font-face { font-family: "PS"; src: url(../../../frontend/public/hds/fonts/PublicSans-Regular.woff2) format("woff2"); font-weight: 400; }
+@font-face { font-family: "PS"; src: url(../../../frontend/public/hds/fonts/PublicSans-Italic.woff2) format("woff2"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "PS"; src: url(../../../frontend/public/hds/fonts/PublicSans-Light.woff2) format("woff2"); font-weight: 300; }
+@font-face { font-family: "PS"; src: url(../../../frontend/public/hds/fonts/PublicSans-Bold.woff2) format("woff2"); font-weight: 700; }
+@page { size: A4; margin: 0; }
+:root { --ink: #121216; --soft: #f3f3f4; --line: #c9c9cc; --red: #d92d22; --blue: #0b3d91; --ok: #137a3f; --amber: #a8770a; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: "PS", Arial, sans-serif; color: var(--ink); font-size: 9.3pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 297mm; padding: 15mm 16mm 13mm; position: relative; overflow: hidden; page-break-after: always; break-after: page; }
+.page:last-child { page-break-after: auto; break-after: auto; }
+.foot { position: absolute; left: 16mm; right: 16mm; bottom: 7mm; display: flex; justify-content: space-between; font-size: 7.4pt; color: var(--ink); border-top: .6pt solid var(--line); padding-top: 2mm; }
+h1 { font-size: 24pt; line-height: 1.08; margin: 0; font-weight: 700; }
+h2 { font-size: 14pt; margin: 0 0 2.4mm; font-weight: 700; }
+h2 .n { color: var(--red); margin-right: 2mm; }
+h3 { font-size: 10.2pt; margin: 3.4mm 0 1.2mm; font-weight: 700; }
+p { margin: 0 0 2.2mm; }
+.kicker { font-size: 7.4pt; letter-spacing: 1.4pt; text-transform: uppercase; font-weight: 700; }
+.lead { font-size: 10.4pt; line-height: 1.46; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+figure { margin: 0 0 2.6mm; }
+figure img, figure svg { width: 100%; display: block; }
+figcaption { font-size: 8pt; color: var(--ink); margin-top: 1.3mm; line-height: 1.38; }
+table { width: 100%; border-collapse: collapse; font-size: 8.3pt; margin: 1mm 0 2.6mm; }
+th { text-align: left; font-weight: 700; font-size: 7.6pt; border-bottom: 1pt solid var(--ink); padding: 1.3mm 1.6mm; }
+td { border-bottom: .5pt solid var(--line); padding: 1.2mm 1.6mm; vertical-align: top; }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; }
+code { font-family: Consolas, "Courier New", monospace; font-size: 8.1pt; }
+.box { background: var(--soft); border-left: 2.4pt solid var(--blue); padding: 2.4mm 3mm; margin: 2mm 0 2.6mm; }
+.box.red { border-color: var(--red); }
+.figs { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1.3pt solid var(--ink); margin: 4mm 0 2mm; }
+.figs > div { padding: 2.2mm 2mm 0 0; }
+.figs b { display: block; font-size: 17pt; line-height: 1.05; }
+.figs span { display: block; font-size: 7.8pt; margin-top: 1mm; line-height: 1.3; }
+ul, ol { margin: 0 0 2.2mm; padding-left: 4.5mm; }
+li { margin: 0 0 1mm; }
+.band { background: #000; color: #fff; margin: -15mm -16mm 5mm; padding: 13mm 16mm 6mm; }
+.band .kicker { color: #ff7a70; }
+.band h1 { color: #fff; margin-top: 2.5mm; }
+.band .sub { font-size: 11.4pt; margin-top: 2mm; color: #fff; }
+.dark { background: #000; padding: 0; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 2mm 0 1mm; }
+.card { border-top: 2.4pt solid var(--ink); padding-top: 2mm; }
+.card b { display: block; font-size: 9.6pt; }
+.card .how { font-size: 8.2pt; margin: 1mm 0; }
+.card .gets { font-size: 8.2pt; font-weight: 700; color: var(--blue); }
+.tag { display: inline-block; font-size: 7pt; font-weight: 700; padding: .3mm 1.4mm; border-radius: 1mm; }
+.t-ok { background: #ddf1e5; color: var(--ok); } .t-bad { background: #fbe2df; color: var(--red); }
+.darkfig { background: #18181c; padding: 2mm; }
+.darkfig figcaption { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="page">
+  <div class="band">
+    <div class="kicker">TSYP14 Technical Challenge, Track 1</div>
+    <h1>SENTINEL-LINK: authenticating stored satellite downlinks</h1>
+    <div class="sub">Cryptography where the link allows it, physics where it does not.</div>
+  </div>
+
+  <figure class="dark"><img src="shot_hero.jpg" alt="Web console home page with the AO-73 pass on a 3D globe"></figure>
+  <figcaption style="margin-top:-1mm;margin-bottom:3mm"><b>Figure 1.</b> The operator console. The globe draws the pass geometry computed from the recording's own TLE, and the link to the station turns red while a flagged frame is being received.</figcaption>
+
+  <p class="lead">Track 1 asks whether a stored signal, or a sequence decoded from it, can be authenticated. Amateur and
+  Earth-observation cubesats transmit without link-layer authentication, so a replayed frame is bit-for-bit genuine and
+  passes every CRC and FEC check. SENTINEL-LINK works in three layers. On links we control, frames carry CCSDS SDLS
+  authentication that is byte-compatible with NASA CryptoLib. Recordings made by our station are signed at capture, one
+  Merkle leaf per second of audio. For legacy downlinks, five detectors read evidence that is hard to fake (the
+  spacecraft's own clock, the Doppler curve, telemetry continuity, the spectrum and the receiver noise itself), and a
+  calibrated fusion turns it into a decision that is written to a signed hash chain.</p>
+
+  <div class="figs">
+    <div><b>99.3 %</b><span>of attacked frames caught (581 of 585), 95 % CI 98.3 to 99.7 %</span></div>
+    <div><b>0.71 %</b><span>of genuine frames flagged, attacked and clean passes together</span></div>
+    <div><b>101/101</b><span>attack events detected: replays, anomalies and replays from another pass</span></div>
+    <div><b>70/70</b><span>copied audio stretches found without decoding, and 0 of 30 clean files matched</span></div>
+    <div><b>2.4 ms</b><span>per frame after decoding, with 43.8 MB peak memory on a laptop CPU</span></div>
+  </div>
+  <p style="font-size:8.2pt">All figures are measured on 17 held-out SatNOGS recordings, from later dates and stations not seen in training. Thresholds were fixed before the held-out run.</p>
+
+  <h3>Contributions</h3>
+  <ol style="font-size:8.6pt">
+    <li><b>A decoder that keeps time.</b> Per-block AO-40 FEC on the gr-satellites symbol stream ties every frame to its exact sample position. It recovers 1,226 frames from the 30 archived recordings; the stations decoded 1,143 live.</li>
+    <li><b>A clock model learned from public data.</b> AO-73's frame counter, fitted once on the archive, predicts every authentic frame of unseen passes to within one frame. A replayed frame arrives with a counter that lags by exactly its delay.</li>
+    <li><b>A duplicate-audio test that needs no decoder.</b> Receiver noise never repeats, so audio copied within a file is found by correlation alone, for any satellite and any modulation.</li>
+    <li><b>NASA software in the loop.</b> Every pass runs through NASA OnAIR with a clock plugin we wrote for it, and our SDLS frames are checked against NASA CryptoLib, where we found a telemetry anti-replay gap.</li>
+    <li><b>An end-to-end trust chain.</b> Signed capture manifests locate edits to the second, and every decision goes into an append-only ledger with signed checkpoints, stored in PostgreSQL in production.</li>
+  </ol>
+  <div class="foot"><span>SENTINEL-LINK technical report</span><span>1 / 8</span></div>
+</section>
+
+<!-- 2 -->
+<section class="page">
+  <h2><span class="n">1</span>Problem and threat model</h2>
+  <p>We protect the space-to-ground segment and the archive behind it: RF downlink, receiver, demodulator, recording
+  archive, frame decoder, telemetry and product pipeline, analyst. The reference system is the SatNOGS network receiving
+  FUNcube-1 / AO-73 (NORAD 39444), 1200 Bd DBPSK telemetry with no link-layer authentication. The same analysis applies to
+  any cubesat downlink in that position.</p>
+
+  <figure>
+  <svg viewBox="0 0 760 210" font-family="PS, Arial" font-size="11">
+    <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#17171b"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e0352b"/></marker></defs>
+    <g fill="#fff" stroke="#17171b" stroke-width="1.2">
+      <rect x="8" y="70" width="98" height="46" rx="3"/><rect x="134" y="70" width="98" height="46" rx="3"/>
+      <rect x="260" y="70" width="110" height="46" rx="3"/><rect x="398" y="70" width="98" height="46" rx="3"/>
+      <rect x="524" y="70" width="98" height="46" rx="3"/><rect x="650" y="70" width="102" height="46" rx="3"/>
+    </g>
+    <g text-anchor="middle" font-weight="700" fill="#17171b">
+      <text x="57" y="90">Spacecraft</text><text x="183" y="90">Receiver / SDR</text><text x="315" y="90">Recording archive</text>
+      <text x="447" y="90">Demod + FEC</text><text x="573" y="90">Telemetry / EO</text><text x="701" y="90">Analyst</text>
+    </g>
+    <g text-anchor="middle" fill="#3d3d40" font-size="9.5">
+      <text x="57" y="105">AO-73, 145.935 MHz</text><text x="183" y="105">SatNOGS station</text><text x="315" y="105">48 kHz audio files</text>
+      <text x="447" y="105">frames + timing</text><text x="573" y="105">products</text><text x="701" y="105">decisions</text>
+    </g>
+    <g stroke="#17171b" stroke-width="1.2" marker-end="url(#a)">
+      <line x1="106" y1="93" x2="132" y2="93"/><line x1="232" y1="93" x2="258" y2="93"/><line x1="370" y1="93" x2="396" y2="93"/>
+      <line x1="496" y1="93" x2="522" y2="93"/><line x1="622" y1="93" x2="648" y2="93"/>
+    </g>
+    <rect x="252" y="8" width="126" height="38" rx="3" fill="#fde7e5" stroke="#e0352b"/>
+    <text x="315" y="24" text-anchor="middle" font-weight="700" fill="#e0352b">Attacker (file access)</text>
+    <text x="315" y="38" text-anchor="middle" font-size="9.5" fill="#e0352b">replay · inject · jam</text>
+    <line x1="315" y1="46" x2="315" y2="68" stroke="#e0352b" stroke-width="1.6" marker-end="url(#ar)"/>
+    <g font-size="9.5">
+      <rect x="8" y="140" width="744" height="62" rx="3" fill="#f6f6f6" stroke="none"/>
+      <text x="20" y="157" font-weight="700" fill="#0b3d91">Where SENTINEL-LINK acts</text>
+      <text x="20" y="174" fill="#17171b">① sign the recording at capture (Merkle manifest)   ② judge every decoded frame on physical and statistical evidence</text>
+      <text x="20" y="190" fill="#17171b">③ quarantine or request verification before delivery   ④ log every decision in a signed hash chain   ⑤ SDLS on links we own</text>
+    </g>
+  </svg>
+  <figcaption><b>Figure 2.</b> The protected segment. Every attack is a digital edit of a recording, as the challenge requires; nothing is radiated.</figcaption>
+  </figure>
+
+  <p>Downlinked housekeeping decides whether a payload is considered healthy, frame timing places each measurement on the
+  orbit, and archives are re-processed into products used for agriculture, insurance, water management and disaster
+  response. A corrupted stretch that still decodes does not stop that pipeline. It flows on as plausible data, so the
+  defence has to work on data that looks correct.</p>
+
+  <h3>The attacks we test</h3>
+  <ul>
+    <li><b>Replay of 5 to 20 frames.</b> The analyst sees nominal telemetry with valid checksums, so a developing fault can be masked by older, healthy values. Caught by the clock head, the duplicate-audio head and the signed capture.</li>
+    <li><b>An injected sequence anomaly</b>, a duplicated or swapped frame. Timestamps and orbit placement shift by one frame. Caught by the clock head, which compares the counter step with the time step.</li>
+    <li><b>Narrowband interference at a hidden strength.</b> Frames go missing or decode corrupted, and gaps can be read as spacecraft events. Handled by the interference head, excision and the missing-frame report.</li>
+    <li><b>A replay of another day's pass.</b> A complete, valid pass is accepted as today's. It sits hundreds to thousands of frames off the clock model.</li>
+    <li><b>A forged counter</b>, the informed attacker. The counter is consistent with the clock, so the content forgery has to be caught by the telemetry and splice heads.</li>
+  </ul>
+
+  <h3>Three kinds of traffic, three defences</h3>
+  <div class="cards">
+    <div class="card"><b>Our own link</b><div class="how">CCSDS SDLS: SPI, anti-replay sequence number window, HMAC-SHA-256/128 or AES-256-GCM, HKDF key store.</div><div class="gets">Replay and injection rejected</div></div>
+    <div class="card"><b>Recordings we capture</b><div class="how">Ed25519-signed manifest with a Merkle tree over every second of audio and the capture context.</div><div class="gets">Stored signal authenticated, edits located to the second</div></div>
+    <div class="card"><b>Legacy downlinks</b><div class="how">Five evidence heads and a calibrated fusion, run on every decoded frame.</div><div class="gets">Attacks detected with a calibrated probability</div></div>
+    <div class="card"><b>Every decision</b><div class="how">SHA-256 hash chain with Ed25519 checkpoints, append-only in PostgreSQL.</div><div class="gets">Tamper-evident audit trail</div></div>
+  </div>
+  <div class="foot"><span>SENTINEL-LINK technical report</span><span>2 / 8</span></div>
+</section>
+
+<!-- 3 -->
+<section class="page">
+  <h2><span class="n">2</span>Architecture</h2>
+  <p>One recording goes in. Out come a decision with reason codes for every frame, an interference report with the alarm
+  frequency, a duplicate-audio report, the list of frames the spacecraft clock says were sent but were not received, and
+  the ledger entries that record it all. Checks that need no decoder run on the raw audio, so they still work when the
+  decoder recovers nothing.</p>
+
+  <figure>
+  <svg viewBox="0 0 760 312" font-family="PS, Arial" font-size="10.5">
+    <defs><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3d3d40"/></marker>
+    <marker id="br" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e0352b"/></marker></defs>
+    <g fill="#3d3d40" font-size="8.5" font-weight="700" letter-spacing="1">
+      <text x="8" y="12">INPUT</text><text x="150" y="12">ON THE RAW AUDIO</text><text x="330" y="12">DECODE</text><text x="500" y="12">ON DECODED FRAMES</text><text x="648" y="12">DECIDE, RECORD</text>
+    </g>
+    <g stroke="#3d3d40" stroke-width="1.1" fill="none">
+      <path d="M118 156 H134 M134 44 V258"/>
+      <path d="M134 44 H148" marker-end="url(#b)"/><path d="M134 124 H148" marker-end="url(#b)"/><path d="M134 258 H148" marker-end="url(#b)"/>
+      <path d="M118 166 H328" marker-end="url(#b)"/>
+      <path d="M470 166 H485 M485 92 V248"/>
+      <path d="M485 92 H498" marker-end="url(#b)"/><path d="M485 144 H498" marker-end="url(#b)"/><path d="M485 196 H498" marker-end="url(#b)"/><path d="M485 248 H498" marker-end="url(#b)"/>
+      <path d="M628 92 H642 M628 144 H642 M628 196 H642 M642 92 V196"/>
+      <path d="M642 150 H646" marker-end="url(#b)"/>
+      <path d="M300 44 H640 V118 H646" marker-end="url(#b)"/>
+      <path d="M300 116 H318 V64 H634 V132 H646" marker-end="url(#b)"/>
+      <path d="M300 258 H470 V292 H636 V184 H646" marker-end="url(#b)"/>
+      <path d="M701 204 V232" marker-end="url(#b)"/>
+    </g>
+    <path d="M300 136 H314 V156 H328" stroke="#e0352b" stroke-width="1.3" stroke-dasharray="4 3" fill="none" marker-end="url(#br)"/>
+    <text x="256" y="158" fill="#e0352b" font-size="9" font-weight="700">excise</text>
+    <g stroke-width="1.2" stroke="#17171b" fill="#fff">
+      <rect x="8" y="132" width="110" height="58" rx="3"/>
+      <rect x="150" y="22" width="150" height="44" rx="3"/><rect x="150" y="102" width="150" height="44" rx="3"/><rect x="150" y="236" width="150" height="44" rx="3"/>
+      <rect x="330" y="140" width="140" height="52" rx="3"/>
+      <rect x="500" y="72" width="128" height="40" rx="3"/><rect x="500" y="124" width="128" height="40" rx="3"/><rect x="500" y="176" width="128" height="40" rx="3"/>
+    </g>
+    <rect x="500" y="228" width="128" height="40" rx="3" fill="#0b3d91"/>
+    <rect x="648" y="108" width="106" height="96" rx="3" fill="#e0352b"/>
+    <rect x="648" y="234" width="106" height="44" rx="3" fill="#17171b"/>
+    <g font-weight="700" fill="#17171b">
+      <text x="18" y="152">Recording</text><text x="160" y="40">Signed capture</text><text x="160" y="120">Interference head</text>
+      <text x="160" y="254">Duplicate-audio head</text><text x="340" y="160">gr-satellites decoder</text>
+      <text x="510" y="89">Clock head</text><text x="510" y="141">Splice head</text><text x="510" y="193">Telemetry head</text>
+    </g>
+    <g fill="#3d3d40" font-size="9">
+      <text x="18" y="166">SatNOGS, 48 kHz</text><text x="18" y="178">TLE, station position</text>
+      <text x="160" y="54">Ed25519, one leaf per second</text><text x="160" y="134">STFT evidence, calibrated GBM</text>
+      <text x="160" y="268">2 s blocks vs the whole file</text>
+      <text x="340" y="173">DBPSK, per-block AO-40 FEC</text><text x="340" y="184">frame timing, Doppler, level</text>
+      <text x="510" y="102">counter vs on-board clock</text><text x="510" y="154">Doppler and level steps</text><text x="510" y="206">PyOD ECOD, 4 neighbours</text>
+    </g>
+    <text x="510" y="245" font-weight="700" fill="#fff">NASA OnAIR</text><text x="510" y="258" fill="#d1d1d1" font-size="9">limits + our clock plugin</text>
+    <text x="658" y="128" font-weight="700" fill="#fff">Fusion</text>
+    <g fill="#fff" font-size="9"><text x="658" y="142">calibrated p</text><text x="658" y="160">p &lt; 0.5 ACCEPT</text><text x="658" y="173">0.5 to 0.9 VERIFY</text><text x="658" y="186">p ≥ 0.9 QUARANTINE</text></g>
+    <text x="658" y="252" font-weight="700" fill="#fff">Signed ledger</text><text x="658" y="266" fill="#d1d1d1" font-size="9">SHA-256 chain</text>
+  </svg>
+  <figcaption><b>Figure 3.</b> Processing chain for one recording. The interference alarm drives the response (dashed): the decoder tries each excision and keeps the one that recovers the most Reed–Solomon-valid frames. NASA OnAIR reports beside the fused decision, and in blind analysis the duplicate-audio head raises every frame inside a copy to at least VERIFY. The console, the API and the benchmark run the same code.</figcaption>
+  </figure>
+
+  <div class="cols">
+    <div>
+      <h3>Reference data and split</h3>
+      <p>We use 30 AO-73 observations from the SatNOGS Network, recorded by five stations on three continents between
+      29 September and 22 October 2026. Each one comes with its audio, the station's own decoded frames, the TLE and the
+      station position, and every file is pinned by its SHA-256.</p>
+      <p>Training uses the 13 observations made before 15 October by stations seen more than once. The other 17, later or
+      from unseen stations, are held out, and every reported number comes from them, with three attack seeds per
+      recording.</p>
+      <h3>What it costs to run</h3>
+      <p>The frame heads and the fusion take 2.4 ms per frame. The interference head takes about 14 s per recording and
+      the duplicate-audio head about 5 s, both on the raw audio. Signing or verifying a capture manifest takes 0.16 to
+      0.28 s, NASA OnAIR 29 to 36 ms per pass, and SDLS verification 7.1 µs per frame.</p>
+    </div>
+    <div>
+      <h3>Evaluation protocol</h3>
+      <p>Attacks are applied to the audio, and then the whole chain runs again: demodulation, decoding, every head and the
+      fusion. Labels come from the attack plan, so a frame counts as caught only if the decoder recovered it and the
+      fusion flagged it.</p>
+      <p>Replay length is drawn from 5 to 20 frames. The jammer type is drawn from CW, narrowband noise, swept and pulsed,
+      and its strength from −30 to +10 dB relative to the signal, all hidden from the detector.</p>
+      <p>A jammer counts as detected only when an alarm overlaps it in time and lies within 100 Hz of its frequency, plus
+      half its bandwidth for noise and sweeps. Rates carry 95 % Wilson intervals.</p>
+    </div>
+  </div>
+  <div class="foot"><span>SENTINEL-LINK technical report</span><span>3 / 8</span></div>
+</section>
+
+<!-- 4 -->
+<section class="page">
+  <h2><span class="n">3</span>Signal processing and the clock evidence</h2>
+  <div class="cols">
+    <div>
+      <h3>From audio to timed frames</h3>
+      <p><b>Carrier.</b> NRZ BPSK shows two lobes at f<sub>c</sub> ± baud/2. On a Welch PSD we pick the f<sub>c</sub> that maximises the smaller of the two lobe excesses, so a jammer beside one lobe cannot pull the estimate.</p>
+      <p><b>Demodulation.</b> The gr-satellites FUNcube-1 flowgraph (AGC, band-edge FLL, polyphase clock recovery, differential detection) runs once, and we read back its symbol stream, FLL frequency and AGC level.</p>
+      <p><b>Per-block FEC with timing.</b> gr-satellites stamps frames with wall-clock time, which means nothing for an archived file. We search the 65-bit distributed syncword in the hard symbols and decode each 5,200-symbol block on its own (de-interleave, Viterbi r=½ k=7, descrambler, two RS(160,128)), so every frame is tied to its sync symbol and to its exact time in the recording.</p>
+      <div class="box">On observation 15261075 all 59 frames we decode are bit-identical to the station's own decodes. Across the 30 recordings we recover 7 % more frames than the stations did live.</div>
+    </div>
+    <div>
+      <h3>The spacecraft keeps its own clock</h3>
+      <p>Each AO-73 frame carries a type cycling from 0 to 23 and a 24-bit counter that increments once per 24-frame set,
+      so <code>P = 24·seq + type</code> advances exactly once per transmitted frame. A robust linear fit
+      <code>P = a + b·t</code> on the training passes gives an on-board frame period of <b>4.9885 s</b>; the oscillator
+      runs about 0.23 % fast against the nominal 5 s.</p>
+      <figure><img src="fig_clock_archive.png" alt="Counter minus clock residuals across the archive">
+      <figcaption><b>Figure 4.</b> Counter minus clock model for every authentic frame of every pass, leave-one-pass-out. All lie within one frame (grey band).</figcaption></figure>
+    </div>
+  </div>
+  <figure><img src="fig_clock_demo.png" alt="Frame counter against reception time on an attacked pass">
+  <figcaption><b>Figure 5.</b> Held-out observation 15261075 after the standard test (seed 4), the same run as Figures 7 and 14. Genuine frames run parallel to the clock line, offset by a constant for the pass. The replayed frames sit 40 frames below it, which is the 200 s replay delay, and the injected duplicate repeats its predecessor's counter. All 16 attacked frames that survived decoding are quarantined, with no false alarm.</figcaption></figure>
+
+  <h3>What the clock head reports for each frame</h3>
+  <ul style="font-size:8.6pt">
+    <li><b>Lag or lead</b> of the counter against the clock, after removing the pass offset, in units of the in-pass σ. Above 4σ it raises <code>COUNTER_BEHIND_CLOCK</code> (a replay) or <code>COUNTER_AHEAD_OF_CLOCK</code> (a forged counter or an audio dropout).</li>
+    <li><b>Duplicate position</b>, the same on-board position seen twice in a pass, raises <code>DUPLICATE_COUNTER</code>; a counter lower than the previous frame's raises <code>COUNTER_REGRESSION</code>.</li>
+    <li><b>Step error</b>, the counter step minus the time step, raises <code>COUNTER_TIME_MISMATCH</code> above two frames, which points to an injected or removed frame.</li>
+    <li><b>Pass offset</b> beyond a 10-frame tolerance raises <code>PASS_FROM_ANOTHER_TIME</code>. All 16 held-out replays of another day's pass were caught.</li>
+  </ul>
+  <div class="foot"><span>SENTINEL-LINK technical report</span><span>4 / 8</span></div>
+</section>
+
+<!-- 5 -->
+<section class="page">
+  <h2><span class="n">4</span>The other evidence heads and the decision</h2>
+  <div class="cols">
+    <div>
+      <h3>Splice</h3>
+      <p>Replayed audio carries the Doppler and level of the moment it was recorded. At every frame boundary we measure the
+      step of the median carrier and level over 0.4 to 2.9 s on each side, scaled by the track's own MAD of first
+      differences, plus each frame's offset from a robust cubic fit of the whole-pass Doppler curve.</p>
+      <h3>Telemetry content</h3>
+      <p>Twelve housekeeping channels (photovoltages, battery voltage and temperature, currents, reboot and error counters)
+      are compared with the median of the four neighbouring frames on each side, scaled by per-channel noise learned on
+      clean passes, and scored with PyOD's ECOD. This is the evidence left against an attacker who rewrites the counter of
+      a frame taken from elsewhere.</p>
+    </div>
+    <div>
+      <h3>Interference</h3>
+      <p>Per 5 s window, from a 4,096-point STFT: prominence over a running-median baseline, spectral kurtosis (−1 for a
+      constant-envelope tone, 0 for noise), persistence, −3 dB width, imbalance between the two BPSK lines and in-band
+      excess, plus 30 s context features. A histogram gradient-boosting classifier with isotonic calibration scores each
+      window, and the threshold is set on separate clean calibration recordings. The response notches tone-like
+      interferers and band-stops wider ones, then decodes again.</p>
+      <figure class="darkfig"><img src="shot_jammer.jpg" alt="Spectrogram with the alarm at the jammer frequency">
+      <figcaption><b>Figure 6.</b> A tone 3 dB below the signal at 13.50 kHz. The alarm (red line) is raised at 13.50 kHz with probability 0.99; the trace below is the jamming probability over time.</figcaption></figure>
+    </div>
+  </div>
+
+  <h3>Duplicate audio: receiver noise never repeats</h3>
+  <p>A genuine recording never contains the same stretch of thermal noise twice, while audio replayed inside a file is a
+  sample-for-sample copy, noise included. The head mixes the downlink band to a 1 kHz complex baseband, whitens it with the
+  file's own long-term spectrum, and cross-correlates 2 s blocks against the whole file by FFT. Whitening is one fixed
+  filter, so copies stay copies, but a CW jammer or a station birdie no longer makes distant blocks look alike. Blocks that
+  match at the same lag form one segment, and the later copy is reported. The threshold, a normalised correlation of 0.5,
+  was fixed before the benchmark.</p>
+  <figure class="darkfig"><img src="shot_twin.jpg" alt="Duplicate-audio chart from the console">
+  <figcaption><b>Figure 7.</b> The console on observation 15261075 after the standard test. Ribbons join each copy to its source: 244 to 344 s repeats 44 s (r = 0.997), and the injected slot at 203 to 208 s repeats 198 s (r = 0.84). Bars are each block's best correlation with any other part of the file.</figcaption></figure>
+    <p>On the held-out recordings it found all 48 in-pass replays and all 22 duplicated slots, and matched none of the 30
+  clean files (highest genuine correlation 0.27, lowest real copy 0.69). Copies survive Vorbis re-encoding and added noise;
+  a 100 ppm time-stretch defeats it (2 of 16 found), and the clock head still catches those frames.</p>
+  <p><b>Fusion.</b> A logistic regression on 11 log-scaled evidence inputs, trained without class re-weighting, gives a
+  calibrated probability (calibration error 0.023). Below 0.5 a frame is accepted, from 0.5 held for verification, from 0.9
+  quarantined, and every non-accepted frame is logged with its reason codes.</p>
+  <div class="foot"><span>SENTINEL-LINK technical report</span><span>5 / 8</span></div>
+</section>
+
+<!-- 6 -->
+<section class="page">
+  <h2><span class="n">5</span>Trust anchor: authenticated link, signed capture, ledger</h2>
+  <h3>CCSDS SDLS on links we control, checked against NASA CryptoLib</h3>
+  <figure>
+  <svg viewBox="0 0 760 74" font-family="PS, Arial" font-size="10">
+    <g stroke="#fff" stroke-width="2">
+      <rect x="0" y="6" width="44" height="34" fill="#17171b"/><rect x="44" y="6" width="30" height="34" fill="#0b3d91"/>
+      <rect x="74" y="6" width="40" height="34" fill="#1c67e3"/><rect x="114" y="6" width="510" height="34" fill="#b9b9bb"/>
+      <rect x="624" y="6" width="104" height="34" fill="#e0352b"/><rect x="728" y="6" width="32" height="34" fill="#3d3d40"/>
+    </g>
+    <g fill="#fff" font-weight="700" text-anchor="middle"><text x="22" y="27">Hdr</text><text x="59" y="27">SPI</text><text x="94" y="27">ARSN</text><text x="676" y="27">MAC</text><text x="744" y="27">FECF</text></g>
+    <text x="369" y="27" text-anchor="middle" font-weight="700" fill="#17171b">AO-73 telemetry frame, 256 B (real data)</text>
+    <g fill="#3d3d40" font-size="9" text-anchor="middle"><text x="22" y="54">6 B</text><text x="59" y="54">2 B</text><text x="94" y="54">4 B</text><text x="369" y="54">256 B</text><text x="676" y="54">16 B, HMAC-SHA-256/128</text><text x="744" y="54">2 B</text></g>
+    <text x="0" y="70" fill="#3d3d40" font-size="9">Authentication adds 22 bytes per 256-byte frame (8.6 %); AES-256-GCM authenticated encryption adds 34 bytes.</text>
+  </svg>
+  <figcaption><b>Figure 8.</b> One protected frame, field by field, produced identically by our implementation and by NASA CryptoLib 1.7.5.</figcaption>
+  </figure>
+  <div class="cols">
+    <div>
+      <table>
+        <thead><tr><th>Test on real AO-73 frames</th><th>CryptoLib</th><th>Ours</th></tr></thead>
+        <tbody>
+          <tr><td>Protected output compared</td><td colspan="2">byte-identical, 6 of 6 frames</td></tr>
+          <tr><td>Our frames, verified by CryptoLib</td><td>6/6 accepted</td><td></td></tr>
+          <tr><td>CryptoLib frames, verified by us</td><td></td><td>6/6 accepted</td></tr>
+          <tr><td>Telemetry bit flipped, CRC fixed</td><td>rejected</td><td>rejected</td></tr>
+          <tr><td>Valid frame replayed</td><td><span class="tag t-bad">accepted</span></td><td><span class="tag t-ok">rejected</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="box red" style="margin-top:1mm">In CryptoLib 1.7.5 the anti-replay window is enforced on TC frames only, so a replayed TM frame with a valid MAC is accepted. Our receiver applies the window to telemetry as well, and an automated interoperability test checks both behaviours on every run.</div>
+            <p>Over 2,085 frames, both services accepted every fresh frame and rejected every replay and bit-flip. Keys come from an HKDF key store that stands in for an HSM.</p>
+    </div>
+  </div>
+  <figure class="darkfig"><img src="shot_sdls.jpg" alt="Secure link results and packet lane in the console">
+  <figcaption><b>Figure 9.</b> The same real downlink, protected with HMAC-SHA-256/128 and then attacked. All 59 genuine frames are accepted; the 8 replays, the bit-flip and the forged counter (red) are rejected, at a cost of 22 bytes and a few microseconds per frame.</figcaption></figure>
+
+  <h3>Authenticating the stored signal</h3>
+  <p>At capture the station hashes each second of audio into a Merkle tree and signs the root, together with the capture
+  context, with Ed25519. Verification recomputes the leaves of the file as received: the signature proves the manifest is
+  genuine, and the leaves that no longer match show where the audio changed.</p>
+  <figure>
+  <svg viewBox="0 0 760 64" font-family="PS, Arial" font-size="9">
+    <g id="leaves"></g>
+    <text x="0" y="58" fill="#121216">0 s</text><text x="760" y="58" text-anchor="end" fill="#121216">359 s</text>
+    <text x="380" y="58" text-anchor="middle" fill="#d92d22" font-weight="700">edited: 243 to 343 s, hidden replay: 243 to 343 s</text>
+  </svg>
+  <figcaption><b>Figure 10.</b> Replay-only attack on observation 15261075, one cell per second. On all six benchmark recordings the clean copies verified and every attacked copy was rejected.</figcaption>
+  </figure>
+
+  <h3>Tamper-evident decisions</h3>
+    <p>Every run and every non-accepted frame is appended to a SHA-256 hash chain with a signed checkpoint every 32 entries.
+  In production the chain is a PostgreSQL table that refuses updates and deletes, written in the same transaction as the run.</p>
+  <figure>
+  <svg viewBox="0 0 760 92" font-family="PS, Arial" font-size="9"><g id="chain"></g></svg>
+  <figcaption><b>Figure 11.</b> Schematic of the console's tamper test on a copy of the ledger (hashes shortened, illustrative): one quarantined frame rewritten to ACCEPT breaks verification from that entry on.</figcaption>
+  </figure>
+  <div class="foot"><span>SENTINEL-LINK technical report</span><span>6 / 8</span></div>
+</section>
+
+<!-- 7 -->
+<section class="page">
+  <h2><span class="n">6</span>NASA OnAIR in the loop, and results</h2>
+  <p>Every decoded pass is streamed through NASA OnAIR, the GSFC On-board AI Research platform shipped in NOS3. OnAIR's own
+  agent and telemetry test suite check each frame against feasibility limits learned from the training passes, and a plugin
+  we wrote for OnAIR checks the frame counter against the spacecraft clock.</p>
+  <figure class="darkfig"><img src="shot_onair.jpg" alt="OnAIR limit checks and clock plugin strips">
+  <figcaption><b>Figure 12.</b> One 82-frame pass, clean (top) and after the standard attack (bottom). OnAIR's limit checks stay green on every replayed frame, because the data is physically plausible: it is real, just old. The clock plugin turns red on exactly the 14 attacked frames (white cells), with no false alarm.</figcaption></figure>
+
+  <table>
+    <thead><tr><th>Held-out benchmark, 17 recordings, 3 seeds each</th><th class="r">Result</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Replay and sequence-anomaly frames detected</td><td class="r"><b>99.3 %</b> (581/585)</td><td>CI 98.3 to 99.7 %; replay 100 %, anomaly 93.3 % per frame</td></tr>
+      <tr><td>Events: standard replay, anomaly, other-pass replay</td><td class="r"><b>44/44, 41/41, 16/16</b></td><td>an event counts if any of its frames is flagged</td></tr>
+      <tr><td>Genuine frames flagged, all passes</td><td class="r"><b>0.71 %</b></td><td>CI 0.45 to 1.10 %; clean passes alone 0.29 % (2/695)</td></tr>
+      <tr><td>Frame ROC-AUC and calibration error</td><td class="r">0.9996, 0.023</td><td>the probability is calibrated, not only ranked</td></tr>
+      <tr><td>Forged counter, one frame ahead or far off</td><td class="r">88 %, 100 %</td><td>informed attacker, 17 cases each</td></tr>
+      <tr><td>Content forged with a consistent counter</td><td class="r">64.7 %</td><td>only telemetry and splice evidence remain</td></tr>
+      <tr><td>Jammer detected at its frequency, hidden strength</td><td class="r">54.2 % (26/48)</td><td>CI 40.3 to 67.4 %; median frequency error 3.7 Hz</td></tr>
+      <tr><td>Clean recordings with any interference alarm</td><td class="r">7/17</td><td>window false-alarm rate 0.88 %</td></tr>
+      <tr><td>Decision latency per frame, peak memory</td><td class="r">2.41 ms, 43.8 MB</td><td>p95 7.0 ms, after decoding, laptop CPU</td></tr>
+    </tbody>
+  </table>
+  <div class="cols" style="align-items:start">
+    <figure>
+    <svg viewBox="0 0 360 190" font-family="PS, Arial" font-size="8.5" id="pd"></svg>
+    <figcaption><b>Figure 13.</b> Jammer detection against jammer-to-signal ratio on held-out recordings, frequency-matched. It rises from 0 % below −25 dB to 82 % from 0 to +10 dB; each bin holds 2 to 11 recordings, so the intervals are wide.</figcaption></figure>
+    <div>
+      <h3>How jammers are scored</h3>
+      <p>An earlier version counted a jammer as detected whenever any alarm overlapped it in time. That gave 77.1 %, but 11 of
+      those alarms pointed 465 Hz to 13 kHz away from the jammer, and with 7 of 17 clean recordings raising some alarm the
+      measure mostly counted false alarms. We report the frequency-matched 54.2 % instead.</p>
+      <p>A rule requiring two consecutive alarm windows would cut clean recordings with an alarm from 7 of 17 to 2 of 17, at a
+      cost of 3 of 48 jammers. It lost more than the 5-point budget we set in advance on the calibration recordings, so it is
+      reported and not adopted. Choosing it from the held-out results would be tuning on the test set.</p>
+    </div>
+  </div>
+  <div class="foot"><span>SENTINEL-LINK technical report</span><span>7 / 8</span></div>
+</section>
+
+<!-- 8 -->
+<section class="page">
+  <h2><span class="n">7</span>Operation, limits and next steps</h2>
+  <figure style="background:#000"><img src="shot_pipeline_graph.jpg" alt="Pipeline view in the console"></figure>
+  <figcaption style="margin-top:-1mm;margin-bottom:2.6mm"><b>Figure 14.</b> The Attack Lab after the standard test on observation 15261075. Each of the ten stages opens to its input, check and result; the outcome is scored against the hidden attack plan: 16 of 16 attacked frames caught, no false alarm, the copied audio found and the −19 dB jammer missed.</figcaption>
+
+  <div class="cols">
+    <div>
+      <h3>Deployment</h3>
+            <p>The analysis API and the web console run as two containers on one laptop-class machine, with PostgreSQL as a third
+      in production. It stores the ledger, every run and every frame decision with its evidence. The ledger table refuses
+      updates and deletes, a run and its ledger entries commit in one transaction, and the API runs as a role that can only
+      read and insert. Audio stays in files or object storage, referenced by SHA-256. Without a database the same system runs
+      on files, which is how the benchmark is reproduced. A blind mode analyses any uploaded recording with no metadata and
+      reads the absolute time back from the spacecraft clock.</p>
+      <h3>Known limits</h3>
+      <ul>
+        <li><b>Weak or in-band jammers.</b> Below about −20 dB detection is unreliable, and a tone inside the BPSK main lobe is harder to see than one beside it: in our tests a −3 dB tone 400 Hz from the carrier cost 23 of 55 frames without an alarm. Frames missing from the expected counter sequence are always reported, and those lost inside an alarm become verification requests.</li>
+        <li><b>Clock-consistent content forgery.</b> An attacker who recomputes the counter and keeps telemetry plausible defeats the clock head; 64.7 % are still caught by content and splice evidence.</li>
+        <li><b>Duplicate audio</b> cannot see swapped slots, replays taken from another file, or a resample of about 100 ppm. The clock head covers the first two.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Next steps</h3>
+      <ul>
+        <li>A live SDR front end, so the same chain judges frames as they are received rather than from files.</li>
+        <li>NOS3 link experiments with SDLS on both ends, using CryptoLib as the flight-side implementation.</li>
+        <li>An index of past recordings, so the duplicate-audio head can find copies taken from another file.</li>
+        
+        <li>The station key moved into an HSM, behind the same derive-only interface the software key store already exposes.</li>
+      </ul>
+      <h3>Track 1 requirements</h3>
+      <table>
+        <thead><tr><th>Requirement</th><th>Where it is met</th></tr></thead>
+        <tbody>
+                    <tr><td>SatNOGS recordings or telemetry</td><td>30 recordings, 5 stations; frame files too</td></tr>
+          <tr><td>Authenticate a command or telemetry sequence</td><td>SDLS link, byte-identical to NASA CryptoLib (section 5)</td></tr>
+          <tr><td>Authenticate a stored signal</td><td>Signed per-second Merkle manifest (section 5)</td></tr>
+          <tr><td>Detect replay, injection and interference</td><td>Five heads and calibrated fusion (sections 3, 4 and 6)</td></tr>
+                    <tr><td>Calibrated confidence, rates, latency, overhead</td><td>Sections 4, 5 and 6</td></tr>
+
+          <tr><td>A held-out recording supplied for evaluation</td><td>Blind analysis in the console and from the command line</td></tr>
+                    <tr><td>Official tools</td><td>SatNOGS, gr-satellites, NASA OnAIR and CryptoLib, PyOD</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="foot"><span>SENTINEL-LINK technical report</span><span>8 / 8</span></div>
+</section>
+
+<script>
+// Figure 11: P(detect) per J/S bin, results/benchmark.json interference.pd_vs_js (frequency-matched scoring).
+(function () {
+  const bins = [["−40…−25", 7, 0], ["−25…−20", 2, .5], ["−20…−15", 2, .5], ["−15…−10", 10, .4], ["−10…−5", 7, .5714], ["−5…0", 9, .7778], ["0…10", 11, .8182]];
+  const svg = document.getElementById("pd"), ns = "http://www.w3.org/2000/svg", L = 34, B = 150, T = 14, W = 350;
+  const el = (t, a, txt) => { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); if (txt !== undefined) e.textContent = txt; svg.appendChild(e); return e; };
+  [0, .25, .5, .75, 1].forEach(v => { const y = B - v * (B - T); el("line", { x1: L, x2: W, y1: y, y2: y, stroke: "#e3e3e3" }); el("text", { x: L - 4, y: y + 3, "text-anchor": "end", fill: "#3d3d40" }, `${v * 100}%`); });
+  const bw = (W - L) / bins.length;
+  bins.forEach(([lab, n, pd], i) => {
+    const x = L + i * bw + 5, h = pd * (B - T);
+    el("rect", { x, y: B - h, width: bw - 10, height: Math.max(h, .8), fill: "#1c67e3" });
+    el("text", { x: x + (bw - 10) / 2, y: B - h - 4, "text-anchor": "middle", fill: "#17171b", "font-weight": 700 }, `${Math.round(pd * 100)}%`);
+    el("text", { x: x + (bw - 10) / 2, y: B + 11, "text-anchor": "middle", fill: "#3d3d40", "font-size": 7.5 }, lab);
+    el("text", { x: x + (bw - 10) / 2, y: B + 21, "text-anchor": "middle", fill: "#959599", "font-size": 7 }, `n=${n}`);
+  });
+  el("text", { x: W, y: 186, "text-anchor": "end", fill: "#3d3d40" }, "jammer-to-signal ratio, dB");
+})();
+// Figure 9: hash chain, entry 13 rewritten.
+(function () {
+  const g = document.getElementById("chain"), ns = "http://www.w3.org/2000/svg", bad = 13, w = 96, gap = 12;
+  const el = (t, a, txt) => { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); if (txt !== undefined) e.textContent = txt; g.appendChild(e); return e; };
+  const hashes = ["3f9c1a", "a17e52", "0c44d9", "e8b210", "71d6af", "5b0e93", "c2a87d"];
+  for (let i = 0; i < 7; i++) {
+    const idx = 10 + i, x = i * (w + gap), st = idx < bad ? "ok" : idx === bad ? "edit" : "broken";
+    el("rect", { x, y: 6, width: w, height: 62, rx: 3, fill: st === "edit" ? "#fde7e5" : "#fff", stroke: st === "ok" ? "#17171b" : "#e0352b", "stroke-width": 1.2, opacity: st === "broken" ? .7 : 1 });
+    el("text", { x: x + 8, y: 21, "font-weight": 700, fill: "#17171b" }, `Entry ${idx}`);
+    el("text", { x: x + 8, y: 34, fill: st === "edit" ? "#e0352b" : "#3d3d40" }, st === "edit" ? "→ ACCEPT" : idx === 10 ? "run summary" : "QUARANTINE");
+    el("text", { x: x + 8, y: 47, fill: st === "ok" ? "#1a7f45" : "#e0352b", "font-family": "Consolas, monospace", "text-decoration": st === "ok" ? "none" : "line-through" }, `hash ${hashes[i]}…`);
+    el("text", { x: x + 8, y: 60, fill: "#959599", "font-family": "Consolas, monospace" }, i ? `prev ${hashes[i - 1]}…` : "prev 9be1f0…");
+    if (i < 6) el("line", { x1: x + w, x2: x + w + gap, y1: 37, y2: 37, stroke: idx + 1 === bad + 1 ? "#e0352b" : "#3d3d40", "stroke-width": 1.5, "stroke-dasharray": idx >= bad ? "3 2" : "none" });
+  }
+  el("text", { x: 0, y: 84, fill: "#e0352b", "font-weight": 700 }, "verification: chain broken at entry 13; entries 13–16 rejected");
+})();
+// Figure 8: one leaf per second of the replay-only run (edited span from the API result, obs. 15261075, seed 4).
+(function () {
+  const g = document.getElementById("leaves"), n = 359, w = 760 / n, ns = "http://www.w3.org/2000/svg";
+  for (let s = 0; s < n; s++) {
+    const r = document.createElementNS(ns, "rect");
+    r.setAttribute("x", (s * w).toFixed(2)); r.setAttribute("y", 4); r.setAttribute("width", Math.max(.6, w - .5).toFixed(2)); r.setAttribute("height", 36);
+    r.setAttribute("fill", s >= 243 && s < 343 ? "#e0352b" : "#2f8f5b");
+    g.appendChild(r);
+  }
+})();
+</script>
+</body>
+</html>

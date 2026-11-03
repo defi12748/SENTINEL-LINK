@@ -1,0 +1,28 @@
+FROM python:3.13-slim-trixie
+ENV PYTHONUNBUFFERED=1 PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+    SENTINEL_GR_PYTHON=/usr/bin/python3 \
+    SENTINEL_ONAIR_PATH=/opt/OnAIR
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gnuradio gr-satellites libsndfile1 git cmake build-essential libgcrypt20-dev ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app/grss
+COPY grss/requirements.lock.txt ./requirements.lock.txt
+RUN pip install --no-cache-dir -r requirements.lock.txt
+RUN git init /opt/OnAIR && git -C /opt/OnAIR remote add origin https://github.com/nasa-itc/OnAIR.git \
+    && git -C /opt/OnAIR fetch --depth 1 origin aa5559c0f234eba263041b6007573f16870194e5 \
+    && git -C /opt/OnAIR checkout --detach FETCH_HEAD
+COPY grss/sentinel/trust/cryptolib_bridge /tmp/cryptolib_bridge
+RUN sed -i 's/\r$//' /tmp/cryptolib_bridge/build.sh && bash /tmp/cryptolib_bridge/build.sh
+COPY grss/sentinel ./sentinel
+COPY grss/models ./models
+COPY grss/docs ./docs
+COPY grss/deploy ./deploy
+COPY grss/tests ./tests
+COPY grss/data ./data
+COPY grss/results/benchmark.json grss/results/benchmark.md ./results/
+COPY grss/deploy/api-entrypoint.sh /usr/local/bin/sentinel-api
+RUN sed -i 's/\r$//' /usr/local/bin/sentinel-api && chmod +x /usr/local/bin/sentinel-api
+EXPOSE 8000
+ENTRYPOINT ["/usr/local/bin/sentinel-api"]
+CMD ["python", "-m", "uvicorn", "sentinel.api.server:app", "--host", "0.0.0.0", "--port", "8000"]

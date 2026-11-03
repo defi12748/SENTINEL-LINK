@@ -1,0 +1,29 @@
+{
+  "generated_utc": "2026-10-24T00:09:54.282924+00:00",
+  "checks": {
+    "runtime_ready": true,
+    "cache_preserves_analysis_and_fresh_audit": true,
+    "AUTH_rejects_replay_and_injection": true,
+    "AUTH_ENC_rejects_replay_and_injection": true,
+    "NASA_CryptoLib_interoperability": true,
+    "NASA_OnAIR_runs": true,
+    "ledger_valid": true
+  },
+  "timing_ms": {
+    "health": 137.22,
+    "observations": 440.99,
+    "scenario_first": 11928.07,
+    "scenario_repeat": 1246.54,
+    "AUTH": 36.47,
+    "AUTH_ENC": 31.61,
+    "cryptolib": 337.0,
+    "ledger": 10.9
+  },
+  "scenario_score": {
+    "fn": 1,
+    "fp": 0,
+    "frames": 60,
+    "tp": 8
+  },
+  "jammer_detected": false
+}

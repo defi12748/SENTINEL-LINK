@@ -1,0 +1,4 @@
+{
+  "executionEnvironments": [{ "root": "grss" }],
+  "exclude": ["**/node_modules", "grss/data"]
+}

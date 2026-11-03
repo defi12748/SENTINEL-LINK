@@ -1,0 +1,102 @@
+{
+  "id": 15081287,
+  "start": "2026-09-29T06:53:46Z",
+  "end": "2026-09-29T07:05:57Z",
+  "ground_station": 4434,
+  "transmitter": "Pt4MFHSC8UFHu3aTQTLz9K",
+  "norad_cat_id": 39444,
+  "payload": "https://network-satnogs.freetls.fastly.net/media/data_obs/2026/9/29/6/15081287/satnogs_15081287_2026-09-29T06-53-46.ogg",
+  "waterfall": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/waterfall_15081287_2026-09-29T06-53-46.png",
+  "demoddata": [
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-58-59_g1"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-57-14_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-59-39_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-57-34_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-58-39_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-57-54_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-59-14_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-59-09_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-58-24_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-59-49_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-59-44_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-57-49_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-58-34_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-59-19_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-57-44_g0"
+    },
+    {
+      "payload_demod": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/9/29/6/15081287/data_15081287_2026-09-29T06-58-59_g0"
+    }
+  ],
+  "station_name": "JF6FYI Nishikazu, KitaKyushu, QFH (VHF)",
+  "station_lat": 33.895,
+  "station_lng": 130.84,
+  "station_alt": 10,
+  "archived": false,
+  "vetted_user": null,
+  "vetted_datetime": null,
+  "archive_url": null,
+  "client_version": "2.1.1",
+  "client_metadata": "{\"radio\": {\"name\": \"gr-satnogs\", \"version\": null, \"parameters\": {\"mode\": \"BPSK\", \"soapy-rx-device\": \"driver=rtlsdr,serial=VHF,biastee=true\", \"samp-rate-rx\": \"2.048e6\", \"rx-freq\": \"145935000\", \"file-path\": \"/var/lib/satnogs-vhf/receiving_satnogs_15081287_2026-09-29T06-53-46.out\", \"waterfall-file-path\": \"/var/lib/satnogs-vhf/receiving_waterfall_15081287_2026-09-29T06-53-46.dat\", \"decoded-data-file-path\": \"/var/lib/satnogs-vhf/data_15081287\", \"doppler-correction-per-sec\": null, \"lo-offset\": null, \"ppm\": \"2\", \"rigctl-host\": \"rigctld-vhf\", \"rigctl-port\": \"4542\", \"gain-mode\": \"Overall\", \"gain\": \"36.4\", \"antenna\": \"RX\", \"dev-args\": \"\", \"stream-args\": null, \"tune-args\": null, \"other-settings\": null, \"dc-removal\": null, \"bb-freq\": null, \"bw\": null, \"enable-iq-dump\": \"1\", \"iq-file-path\": \"/var/lib/satnogs-client/iq.raw\", \"udp-dump-host\": null, \"udp-dump-port\": 57356, \"baud\": \"1200\"}}, \"latitude\": 33.895, \"longitude\": 130.84, \"elevation\": 10.0, \"frequency\": 145935000}",
+  "status": "good",
+  "status_certainty": null,
+  "waterfall_status": "unknown",
+  "waterfall_status_user": null,
+  "waterfall_status_datetime": null,
+  "rise_azimuth": 174.0,
+  "set_azimuth": 344.0,
+  "max_altitude": 61.0,
+  "transmitter_uuid": "Pt4MFHSC8UFHu3aTQTLz9K",
+  "transmitter_description": "BPSK Telemetry",
+  "transmitter_type": "Transmitter",
+  "transmitter_uplink_low": null,
+  "transmitter_uplink_high": null,
+  "transmitter_uplink_drift": null,
+  "transmitter_downlink_low": 145935000,
+  "transmitter_downlink_high": 145935000,
+  "transmitter_downlink_drift": null,
+  "transmitter_mode": "BPSK",
+  "transmitter_invert": false,
+  "transmitter_baud": 1200.0,
+  "transmitter_updated": "2026-06-27T19:35:44.729055Z",
+  "transmitter_status": "active",
+  "tle0": "0 FUNCUBE 1",
+  "tle1": "1 39444U 13066AE  26271.42429432  .00004314  00000-0  26087-3 0  9996",
+  "tle2": "2 39444  97.8400 245.1909 0034339 209.6295 150.2990 15.10728720695244",
+  "tle_source": "Space-Track.org",
+  "center_frequency": null,
+  "observer": "nishikazu0417",
+  "observation_frequency": 145935000,
+  "transmitter_unconfirmed": false,
+  "sat_id": "OTOF-8025-8953-4756-4779",
+  "transmitter_parameters": null
+}

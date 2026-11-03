@@ -1,0 +1,851 @@
+{
+  "generated_utc": "2026-10-23T14:07:52+00:00",
+  "environment": {
+    "python": "3.13.1",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "cpu_count": 12
+  },
+  "dataset": {
+    "satellite": "AO-73 / FUNcube-1 (NORAD 39444)",
+    "source": "SatNOGS Network",
+    "held_out_observations": [
+      "obs_15081287",
+      "obs_15123656",
+      "obs_15208319",
+      "obs_15211184",
+      "obs_15211247",
+      "obs_15222456",
+      "obs_15228452",
+      "obs_15229495",
+      "obs_15230978",
+      "obs_15237468",
+      "obs_15239833",
+      "obs_15242426",
+      "obs_15244830",
+      "obs_15244977",
+      "obs_15254375",
+      "obs_15261075",
+      "obs_15269864"
+    ],
+    "seeds": [
+      1000,
+      1001,
+      1002
+    ]
+  },
+  "sdls": {
+    "AUTH": {
+      "frames": 2085,
+      "accepted_fresh": 2085,
+      "overhead_bytes": 22,
+      "overhead_pct_of_256B_frame": 8.59,
+      "apply_us_per_frame": 4.37,
+      "verify_us_per_frame": 7.06,
+      "replay_rejection_rate": 1.0,
+      "bitflip_rejection_rate": 1.0
+    },
+    "AUTH_ENC": {
+      "frames": 2085,
+      "accepted_fresh": 2085,
+      "overhead_bytes": 34,
+      "overhead_pct_of_256B_frame": 13.28,
+      "apply_us_per_frame": 4.55,
+      "verify_us_per_frame": 4.12,
+      "replay_rejection_rate": 1.0,
+      "bitflip_rejection_rate": 1.0
+    }
+  },
+  "frame_detection": {
+    "attacked_passes": {
+      "frames": 2574,
+      "attacked": 585,
+      "tp": 581,
+      "fp": 17,
+      "fn": 4,
+      "tn": 1972,
+      "detection_rate": 0.9932,
+      "false_alarm_rate": 0.0085,
+      "precision": 0.9716,
+      "f1": 0.9823,
+      "roc_auc": 0.9996,
+      "detection_rate_ci95": [
+        0.9826,
+        0.9973
+      ],
+      "false_alarm_rate_ci95": [
+        0.0053,
+        0.0136
+      ]
+    },
+    "clean_passes": {
+      "frames": 695,
+      "false_alarms": 2,
+      "false_alarm_rate": 0.0029
+    },
+    "combined": {
+      "frames": 3269,
+      "attacked": 585,
+      "tp": 581,
+      "fp": 19,
+      "fn": 4,
+      "tn": 2665,
+      "detection_rate": 0.9932,
+      "false_alarm_rate": 0.0071,
+      "precision": 0.9683,
+      "f1": 0.9806,
+      "roc_auc": 0.9996,
+      "detection_rate_ci95": [
+        0.9826,
+        0.9973
+      ],
+      "false_alarm_rate_ci95": [
+        0.0045,
+        0.011
+      ]
+    },
+    "per_kind_detection_rate": {
+      "replay": 1.0,
+      "sequence": 0.9333
+    },
+    "events": {
+      "standard/replay": {
+        "n": 44,
+        "detected": 44
+      },
+      "standard/sequence": {
+        "n": 41,
+        "detected": 41
+      },
+      "cross_pass_replay/replay": {
+        "n": 16,
+        "detected": 16
+      },
+      "cross_pass_replay/sequence": {
+        "n": 0,
+        "detected": 0
+      }
+    },
+    "calibration_ece": 0.0231,
+    "latency_ms_per_frame": {
+      "mean": 2.414,
+      "p95": 6.977
+    }
+  },
+  "interference": {
+    "threshold": 0.9793794090605039,
+    "recordings_attacked": 48,
+    "detection_rate": 0.5417,
+    "pd_vs_js": [
+      {
+        "js_db": "[-40,-25)",
+        "n": 7,
+        "pd": 0.0
+      },
+      {
+        "js_db": "[-25,-20)",
+        "n": 2,
+        "pd": 0.5
+      },
+      {
+        "js_db": "[-20,-15)",
+        "n": 2,
+        "pd": 0.5
+      },
+      {
+        "js_db": "[-15,-10)",
+        "n": 10,
+        "pd": 0.4
+      },
+      {
+        "js_db": "[-10,-5)",
+        "n": 7,
+        "pd": 0.5714
+      },
+      {
+        "js_db": "[-5,0)",
+        "n": 9,
+        "pd": 0.7778
+      },
+      {
+        "js_db": "[0,10)",
+        "n": 11,
+        "pd": 0.8182
+      }
+    ],
+    "pd_by_kind": {
+      "cw": 0.5,
+      "nbnoise": 0.5,
+      "chirp": 0.6667,
+      "pulsed": 0.5556
+    },
+    "freq_error_hz_median": 3.7,
+    "clean_recordings": 17,
+    "clean_recordings_with_alarm": 7,
+    "clean_window_false_alarm_rate": 0.0088,
+    "latency_ms_per_recording_mean": 13835.5,
+    "mitigation": [
+      {
+        "obs": 15123656,
+        "kind": "pulsed",
+        "js_db": -4.6,
+        "frames_jammed": 82,
+        "frames_after_excision": 82,
+        "frames_clean_reference": 82
+      },
+      {
+        "obs": 15211184,
+        "kind": "pulsed",
+        "js_db": 0.7,
+        "frames_jammed": 0,
+        "frames_after_excision": 12,
+        "frames_clean_reference": 32
+      },
+      {
+        "obs": 15211184,
+        "kind": "cw",
+        "js_db": -0.1,
+        "frames_jammed": 31,
+        "frames_after_excision": 32,
+        "frames_clean_reference": 32
+      },
+      {
+        "obs": 15211247,
+        "kind": "nbnoise",
+        "js_db": 0.2,
+        "frames_jammed": 1,
+        "frames_after_excision": 4,
+        "frames_clean_reference": 15
+      },
+      {
+        "obs": 15222456,
+        "kind": "pulsed",
+        "js_db": 9.6,
+        "frames_jammed": 3,
+        "frames_after_excision": 5,
+        "frames_clean_reference": 37
+      },
+      {
+        "obs": 15228452,
+        "kind": "nbnoise",
+        "js_db": -1.4,
+        "frames_jammed": 34,
+        "frames_after_excision": 34,
+        "frames_clean_reference": 43
+      },
+      {
+        "obs": 15230978,
+        "kind": "nbnoise",
+        "js_db": 4.5,
+        "frames_jammed": 38,
+        "frames_after_excision": 38,
+        "frames_clean_reference": 37
+      },
+      {
+        "obs": 15230978,
+        "kind": "cw",
+        "js_db": -4.0,
+        "frames_jammed": 36,
+        "frames_after_excision": 36,
+        "frames_clean_reference": 37
+      }
+    ],
+    "cases": [
+      {
+        "kind": "nbnoise",
+        "js_db": -25.02,
+        "jn_db": -28.64,
+        "detected": false,
+        "freq_error_hz": 7782.642470202611,
+        "ms": 18436.2,
+        "obs": 15081287,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": -26.13,
+        "jn_db": -29.67,
+        "detected": false,
+        "freq_error_hz": 13087.651130383136,
+        "ms": 28303.0,
+        "obs": 15081287,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -27.03,
+        "jn_db": -30.72,
+        "detected": false,
+        "freq_error_hz": 10000.308675629432,
+        "ms": 21593.0,
+        "obs": 15081287,
+        "any_overlap": true
+      },
+      {
+        "kind": "chirp",
+        "js_db": -13.25,
+        "jn_db": -2.37,
+        "detected": true,
+        "freq_error_hz": 1.737524887013933,
+        "ms": 11502.9,
+        "obs": 15123656,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -4.57,
+        "jn_db": 7.58,
+        "detected": true,
+        "freq_error_hz": 0.10111395527565037,
+        "ms": 11826.1,
+        "obs": 15123656,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -16.46,
+        "jn_db": -5.17,
+        "detected": true,
+        "freq_error_hz": 0.5584612377533631,
+        "ms": 13968.8,
+        "obs": 15123656,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -29.03,
+        "jn_db": -18.99,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 9197.1,
+        "obs": 15208319,
+        "any_overlap": false
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -21.33,
+        "jn_db": -10.98,
+        "detected": true,
+        "freq_error_hz": 2.057076201255768,
+        "ms": 8613.5,
+        "obs": 15208319,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": -12.82,
+        "jn_db": -2.78,
+        "detected": true,
+        "freq_error_hz": 3.2305135184460596,
+        "ms": 9013.3,
+        "obs": 15208319,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -13.05,
+        "jn_db": -10.68,
+        "detected": false,
+        "freq_error_hz": 2271.668077954585,
+        "ms": 13991.3,
+        "obs": 15211184,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": 0.7,
+        "jn_db": 3.15,
+        "detected": true,
+        "freq_error_hz": 3.4560118262761534,
+        "ms": 14358.7,
+        "obs": 15211184,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": -0.13,
+        "jn_db": 2.53,
+        "detected": true,
+        "freq_error_hz": 5.304222853616011,
+        "ms": 14382.0,
+        "obs": 15211184,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -14.88,
+        "jn_db": -15.05,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 9068.2,
+        "obs": 15211247,
+        "any_overlap": false
+      },
+      {
+        "kind": "nbnoise",
+        "js_db": 0.15,
+        "jn_db": 0.39,
+        "detected": true,
+        "freq_error_hz": 4.103071126688519,
+        "ms": 12044.1,
+        "obs": 15211247,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -0.57,
+        "jn_db": -0.64,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 10629.3,
+        "obs": 15211247,
+        "any_overlap": false
+      },
+      {
+        "kind": "pulsed",
+        "js_db": 9.56,
+        "jn_db": 12.48,
+        "detected": true,
+        "freq_error_hz": 1.7785592472318967,
+        "ms": 18182.7,
+        "obs": 15222456,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -20.38,
+        "jn_db": -16.58,
+        "detected": false,
+        "freq_error_hz": 4597.871783753519,
+        "ms": 20087.4,
+        "obs": 15222456,
+        "any_overlap": true
+      },
+      {
+        "kind": "nbnoise",
+        "js_db": -11.89,
+        "jn_db": -8.08,
+        "detected": false,
+        "freq_error_hz": 1889.00674935797,
+        "ms": 19866.8,
+        "obs": 15222456,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -17.61,
+        "jn_db": -11.96,
+        "detected": false,
+        "freq_error_hz": 464.6980862061246,
+        "ms": 17580.3,
+        "obs": 15228452,
+        "any_overlap": true
+      },
+      {
+        "kind": "nbnoise",
+        "js_db": -1.36,
+        "jn_db": 3.34,
+        "detected": true,
+        "freq_error_hz": 40.37932680646736,
+        "ms": 17522.0,
+        "obs": 15228452,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": -9.91,
+        "jn_db": -3.83,
+        "detected": false,
+        "freq_error_hz": 599.2963512595707,
+        "ms": 13348.7,
+        "obs": 15228452,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": 4.61,
+        "jn_db": 1.7,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 14145.6,
+        "obs": 15229495,
+        "any_overlap": false
+      },
+      {
+        "kind": "nbnoise",
+        "js_db": -14.84,
+        "jn_db": -17.81,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 72602.3,
+        "obs": 15229495,
+        "any_overlap": false
+      },
+      {
+        "kind": "chirp",
+        "js_db": -6.01,
+        "jn_db": -8.92,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 22314.7,
+        "obs": 15229495,
+        "any_overlap": false
+      },
+      {
+        "kind": "nbnoise",
+        "js_db": 4.5,
+        "jn_db": 7.5,
+        "detected": true,
+        "freq_error_hz": 3.631630375992245,
+        "ms": 17688.4,
+        "obs": 15230978,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -8.75,
+        "jn_db": -4.5,
+        "detected": true,
+        "freq_error_hz": 1.4074809063204157,
+        "ms": 11881.8,
+        "obs": 15230978,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": -4.05,
+        "jn_db": -1.41,
+        "detected": false,
+        "freq_error_hz": 3001.2640146833564,
+        "ms": 12009.7,
+        "obs": 15230978,
+        "any_overlap": true
+      },
+      {
+        "kind": "chirp",
+        "js_db": -4.46,
+        "jn_db": 2.31,
+        "detected": true,
+        "freq_error_hz": 43.39557541200884,
+        "ms": 10748.4,
+        "obs": 15237468,
+        "any_overlap": true
+      },
+      {
+        "kind": "nbnoise",
+        "js_db": -6.09,
+        "jn_db": -1.87,
+        "detected": true,
+        "freq_error_hz": 5.6160584384506365,
+        "ms": 11758.4,
+        "obs": 15237468,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": 8.08,
+        "jn_db": 11.85,
+        "detected": true,
+        "freq_error_hz": 4.464501864222257,
+        "ms": 11437.0,
+        "obs": 15237468,
+        "any_overlap": true
+      },
+      {
+        "kind": "chirp",
+        "js_db": 7.21,
+        "jn_db": 13.86,
+        "detected": true,
+        "freq_error_hz": 22.106670763663715,
+        "ms": 9959.2,
+        "obs": 15239833,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": -28.44,
+        "jn_db": -22.15,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 9454.8,
+        "obs": 15239833,
+        "any_overlap": false
+      },
+      {
+        "kind": "nbnoise",
+        "js_db": 5.88,
+        "jn_db": 12.32,
+        "detected": true,
+        "freq_error_hz": 0.3012304468647926,
+        "ms": 9745.7,
+        "obs": 15239833,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": -4.04,
+        "jn_db": 2.07,
+        "detected": true,
+        "freq_error_hz": 4.220142282947563,
+        "ms": 6486.6,
+        "obs": 15242426,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -10.93,
+        "jn_db": -4.94,
+        "detected": true,
+        "freq_error_hz": 92.35110851825084,
+        "ms": 7132.0,
+        "obs": 15242426,
+        "any_overlap": true
+      },
+      {
+        "kind": "nbnoise",
+        "js_db": -9.2,
+        "jn_db": -2.55,
+        "detected": false,
+        "freq_error_hz": 4253.32369819292,
+        "ms": 6777.5,
+        "obs": 15242426,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": 2.22,
+        "jn_db": 8.34,
+        "detected": true,
+        "freq_error_hz": 5.612047781696674,
+        "ms": 8831.4,
+        "obs": 15244830,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -2.35,
+        "jn_db": 5.23,
+        "detected": true,
+        "freq_error_hz": 3.7118441883899322,
+        "ms": 9452.5,
+        "obs": 15244830,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": -11.05,
+        "jn_db": -4.33,
+        "detected": true,
+        "freq_error_hz": 4.813030967746272,
+        "ms": 10509.8,
+        "obs": 15244830,
+        "any_overlap": true
+      },
+      {
+        "kind": "nbnoise",
+        "js_db": -26.44,
+        "jn_db": -31.11,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 11929.1,
+        "obs": 15244977,
+        "any_overlap": false
+      },
+      {
+        "kind": "pulsed",
+        "js_db": -12.95,
+        "jn_db": -17.61,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 11493.0,
+        "obs": 15244977,
+        "any_overlap": false
+      },
+      {
+        "kind": "chirp",
+        "js_db": -11.15,
+        "jn_db": -15.86,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 11290.7,
+        "obs": 15244977,
+        "any_overlap": false
+      },
+      {
+        "kind": "cw",
+        "js_db": -6.31,
+        "jn_db": 2.74,
+        "detected": true,
+        "freq_error_hz": 5.716347055860751,
+        "ms": 9443.0,
+        "obs": 15254375,
+        "any_overlap": true
+      },
+      {
+        "kind": "pulsed",
+        "js_db": 5.62,
+        "jn_db": 13.67,
+        "detected": true,
+        "freq_error_hz": 0.7148159837106505,
+        "ms": 10134.7,
+        "obs": 15254375,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": 8.66,
+        "jn_db": 16.94,
+        "detected": false,
+        "freq_error_hz": null,
+        "ms": 9488.8,
+        "obs": 15254375,
+        "any_overlap": false
+      },
+      {
+        "kind": "chirp",
+        "js_db": -7.61,
+        "jn_db": 0.56,
+        "detected": true,
+        "freq_error_hz": 2.328693183321775,
+        "ms": 8027.3,
+        "obs": 15261075,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": -29.69,
+        "jn_db": -22.65,
+        "detected": false,
+        "freq_error_hz": 2429.6536041926447,
+        "ms": 8055.6,
+        "obs": 15261075,
+        "any_overlap": true
+      },
+      {
+        "kind": "cw",
+        "js_db": -2.5,
+        "jn_db": 4.74,
+        "detected": true,
+        "freq_error_hz": 1.4031598092260538,
+        "ms": 7790.4,
+        "obs": 15261075,
+        "any_overlap": true
+      }
+    ],
+    "detection_rate_ci95": [
+      0.4029,
+      0.6742
+    ],
+    "any_alarm_overlap_rate": 0.7708,
+    "frequency_tolerance_hz": "100 (+ half the bandwidth for nbnoise/chirp)",
+    "clean_recordings_with_alarm_ci95": [
+      0.2161,
+      0.6399
+    ]
+  },
+  "evasion": {
+    "counter_forge_plus1": {
+      "detected": 15,
+      "n": 17,
+      "rate": 0.8824
+    },
+    "counter_forge_far": {
+      "detected": 17,
+      "n": 17,
+      "rate": 1.0
+    },
+    "content_forge_counter_consistent": {
+      "detected": 11,
+      "n": 17,
+      "rate": 0.6471
+    }
+  },
+  "manifest": {
+    "cases": [
+      {
+        "obs": "obs_15081287",
+        "clean_authentic": true,
+        "attacked_authentic": false,
+        "tampered_seconds_flagged": 86,
+        "replay_interval_s": [
+          312.1,
+          347.0
+        ],
+        "sign_s": 0.26,
+        "verify_s": 0.283,
+        "manifest_kb": 47.9
+      },
+      {
+        "obs": "obs_15123656",
+        "clean_authentic": true,
+        "attacked_authentic": false,
+        "tampered_seconds_flagged": 434,
+        "replay_interval_s": [
+          255.8,
+          320.7
+        ],
+        "sign_s": 0.168,
+        "verify_s": 0.164,
+        "manifest_kb": 29.3
+      },
+      {
+        "obs": "obs_15208319",
+        "clean_authentic": true,
+        "attacked_authentic": false,
+        "tampered_seconds_flagged": 72,
+        "replay_interval_s": [
+          70.0,
+          134.8
+        ],
+        "sign_s": 0.115,
+        "verify_s": 0.107,
+        "manifest_kb": 18.2
+      },
+      {
+        "obs": "obs_15211184",
+        "clean_authentic": true,
+        "attacked_authentic": false,
+        "tampered_seconds_flagged": 310,
+        "replay_interval_s": [
+          226.9,
+          276.8
+        ],
+        "sign_s": 0.183,
+        "verify_s": 0.18,
+        "manifest_kb": 30.9
+      },
+      {
+        "obs": "obs_15211247",
+        "clean_authentic": true,
+        "attacked_authentic": false,
+        "tampered_seconds_flagged": 135,
+        "replay_interval_s": [
+          54.7,
+          79.6
+        ],
+        "sign_s": 0.117,
+        "verify_s": 0.113,
+        "manifest_kb": 20.1
+      },
+      {
+        "obs": "obs_15222456",
+        "clean_authentic": true,
+        "attacked_authentic": false,
+        "tampered_seconds_flagged": 171,
+        "replay_interval_s": [
+          207.9,
+          282.7
+        ],
+        "sign_s": 0.188,
+        "verify_s": 0.188,
+        "manifest_kb": 31.4
+      }
+    ],
+    "all_clean_authentic": true,
+    "all_attacks_detected": true
+  },
+  "resources": {
+    "peak_rss_mb": 43.8,
+    "wall_clock_s": 2674.3
+  },
+  "rescored": "frequency-matched interference scoring and Wilson intervals applied to saved rows"
+}

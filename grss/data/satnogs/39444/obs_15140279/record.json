@@ -1,0 +1,143 @@
+{
+  "observation_id": 15140279,
+  "norad_id": 39444,
+  "start": "2026-10-06T19:06:03Z",
+  "end": "2026-10-06T19:10:55Z",
+  "station_id": 2107,
+  "station_name": "JH4XSY-pi",
+  "station_lat": 36.0697,
+  "station_lng": 140.2072,
+  "station_alt": 5,
+  "frequency_hz": 145935000,
+  "mode": "BPSK",
+  "baud": 1200.0,
+  "tle1": "1 39444U 13066AE  26279.17362933  .00004829  00000-0  29077-3 0  9991",
+  "tle2": "2 39444  97.8416 253.1306 0035027 182.6284 177.4767 15.10794550696411",
+  "max_altitude": 63.0,
+  "audio_url": "https://network-satnogs.freetls.fastly.net/media/data_obs/2026/10/6/19/15140279/satnogs_15140279_2026-10-06T19-06-03.ogg",
+  "waterfall_url": "https://s3.eu-central-1.wasabisys.com/satnogs-network/data_obs/2026/10/6/19/15140279/waterfall_15140279_2026-10-06T19-06-03.png",
+  "audio_file": "obs_15140279/audio.ogg",
+  "audio_sha256": "f694301e677c0e3dcffe8798ce0b792e031490cc6936212c9ded3a0af64fe760",
+  "frames": [
+    {
+      "index": 0,
+      "timestamp_utc": "2026-10-06T19:06:09Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "ce830b48fcd8a557647b234897e4415191b88b5a1d0aaf36d087f48bf243e707",
+      "file": "obs_15140279/frames/frame_0000.bin"
+    },
+    {
+      "index": 1,
+      "timestamp_utc": "2026-10-06T19:06:14Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "166971e564d539ba39531a8f84775fd9e7116f619bf5cb74211a58047be566a9",
+      "file": "obs_15140279/frames/frame_0001.bin"
+    },
+    {
+      "index": 2,
+      "timestamp_utc": "2026-10-06T19:06:19Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "0b0cb31635b68f44bbcba17e9b83d16b74a6b3044ce3a4c875beccdeccfb1c41",
+      "file": "obs_15140279/frames/frame_0002.bin"
+    },
+    {
+      "index": 3,
+      "timestamp_utc": "2026-10-06T19:06:24Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "d29baaeae36ed4cee9c70ebb5b49dfe820f3dbe40727edc2e43e9001651be6dd",
+      "file": "obs_15140279/frames/frame_0003.bin"
+    },
+    {
+      "index": 4,
+      "timestamp_utc": "2026-10-06T19:06:29Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "af5c5b3602004b2c13d56b8058e0705c65cd17b6381e15fdaa7bee9b3081bebe",
+      "file": "obs_15140279/frames/frame_0004.bin"
+    },
+    {
+      "index": 5,
+      "timestamp_utc": "2026-10-06T19:06:34Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "9a16656a26d3ef17d08741031401da33d64c76e0468b0804ed31921739a5b996",
+      "file": "obs_15140279/frames/frame_0005.bin"
+    },
+    {
+      "index": 6,
+      "timestamp_utc": "2026-10-06T19:06:39Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "4fcc72bd0a847eef0851291df193770ed032375c994093c12a65e665759f90fc",
+      "file": "obs_15140279/frames/frame_0006.bin"
+    },
+    {
+      "index": 7,
+      "timestamp_utc": "2026-10-06T19:06:44Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "53f40b557bf4e40c95cadfd7c98500ca26cb1de293e4eb5cc2d24e38e4d1e0b6",
+      "file": "obs_15140279/frames/frame_0007.bin"
+    },
+    {
+      "index": 8,
+      "timestamp_utc": "2026-10-06T19:06:49Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "729e00805cfe3ab92a7f4b6ba4f358fe302180f544cd38be6b2b2f2d09902d3f",
+      "file": "obs_15140279/frames/frame_0008.bin"
+    },
+    {
+      "index": 9,
+      "timestamp_utc": "2026-10-06T19:06:54Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "29d3bde6ba1f521b1b9dbb10e3e6560e77caf86acf54ecd689a2b74dba50977b",
+      "file": "obs_15140279/frames/frame_0009.bin"
+    },
+    {
+      "index": 10,
+      "timestamp_utc": "2026-10-06T19:06:59Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "11a6dc15d57ab231d230c668de02561e1332596621b7a1aa6693c043ed9727bc",
+      "file": "obs_15140279/frames/frame_0010.bin"
+    },
+    {
+      "index": 11,
+      "timestamp_utc": "2026-10-06T19:07:04Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "6bc2151423237445ef6b15a133dcd180da6a52bde083b666240152720e0a0eaa",
+      "file": "obs_15140279/frames/frame_0011.bin"
+    },
+    {
+      "index": 12,
+      "timestamp_utc": "2026-10-06T19:07:08Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "0b375ef4c804650b9c96c7b0e5550293b41850a76c47b8044c994d42ea52bb2b",
+      "file": "obs_15140279/frames/frame_0012.bin"
+    },
+    {
+      "index": 13,
+      "timestamp_utc": "2026-10-06T19:07:14Z",
+      "group": 0,
+      "size_bytes": 256,
+      "sha256": "4d8f415052ab04a3124d7e2c9654e90f8aead23574673cdd6d28f006b186e118",
+      "file": "obs_15140279/frames/frame_0013.bin"
+    },
+    {
+      "index": 14,
+      "timestamp_utc": "2026-10-06T19:07:19Z",
+      "group": 0,
+      "size_bytes": 249,
+      "sha256": "6b3b6027e3beeedfd2f6923632b4799a505f13d332a1a2f99aefab0196a0caad",
+      "file": "obs_15140279/frames/frame_0014.bin"
+    }
+  ]
+}
